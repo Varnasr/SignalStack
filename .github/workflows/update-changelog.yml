@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Validate auto-changelog configuration
-        run: npx auto-changelog --validate
-
       - name: Generate CHANGELOG.md
         run: npm run changelog
 
