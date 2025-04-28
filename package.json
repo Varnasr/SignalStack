@@ -1,0 +1,11 @@
+{
+  "name": "signalstack",
+  "version": "1.0.0",
+  "description": "Open repository for Research Rundown and OpenStacks extras",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Varnasr/SignalStack.git"
+  },
+  "author": "Varna Sri Raman",
+  "license": "MIT"
+}
