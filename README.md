@@ -1,43 +1,62 @@
-<div align="center">
-  <img src="assets/banner/signalstack-banner.png" alt="SignalStack Banner" style="max-width: 100%;">
-</div>
+# 🚀 SignalStack
 
-# SignalStack
+**SignalStack** is the companion repository for the *Research Rundown* newsletter —  
+bringing you curated research insights, toolkits, and news from the world of development research.
 
-**News and views from the world of development research.**
-
----
-
-SignalStack is the living repository accompanying the [Research Rundown](https://varna.substack.com/) newsletter and the broader [OpenStacks](https://openstacks.dev/) open knowledge project.
-
-✨ Stay updated on cutting-edge research methods, new tools, ethical dilemmas, and best practices in the evolving landscape of development research.
+Stay updated with live issues, featured tools, and additional notes.
 
 ---
 
-## 📚 What's Inside
+## 📖 Table of Contents
 
-- **/issues/** — Active links and summaries for each Research Rundown edition
-- **/featured/** — Highlighted research tools and frameworks
-- **/extras/** — Bonus notes, deep dives, and extended resources
-
----
-
-## 📢 Latest Updates
-
-- **June 2025:** Launch of SignalStack! 🚀  
-- **Featured Resource:** [Learning Generative AI Tools for Excel](featured/learning-generative-ai-tools-for-excel.md)
+- [About SignalStack](#about-signalstack)
+- [Latest Issues](#latest-issues)
+- [Featured Tools](#featured-tools)
+- [Resources](#resources)
+- [What's New](#whats-new)
 
 ---
 
-## 🔥 Tags
-`research` `development` `open-access` `ai-tools` `knowledge` `education`
+## 📚 About SignalStack
+
+SignalStack hosts:
+
+- Links to each live edition of *Research Rundown*.
+- Summaries and companion notes.
+- Featured research tools and resources for practitioners.
 
 ---
 
-### License
+## 🗓️ Latest Issues
 
-This repository is shared under the MIT License — see [LICENSE](LICENSE) for details.
+- [April 2025 Edition](issues/april-2025/)
+- [June 2024 Edition](issues/june-2024/) <!-- Adjust if you have previous issues -->
 
 ---
 
-> Stay tuned — more signals coming soon!
+## 🛠️ Featured Tools
+
+*(Coming soon — selected resources from issues.)*
+
+---
+
+## 📂 Resources
+
+*(Coming soon — categorized guides, policy toolkits, research reports.)*
+
+---
+
+## ✨ What's New
+
+- **April 2025**: Added April 2025 Edition, featuring gender-responsive climate resilience, health equity toolkits, and research governance insights.
+- **June 2024**: Repository launched.
+
+---
+
+## 📬 Stay Connected
+
+- 📖 [Subscribe to Research Rundown](https://open.substack.com/pub/varna)
+- 🌐 [Explore OpenStacks.dev](https://openstacks.dev/)
+- ✉️ Reach out: varna.sr@gmail.com
+
+---
