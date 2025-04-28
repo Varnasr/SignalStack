@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner/signalstack_banner.png" alt="SignalStack Banner" width="100%" />
+  <img src="./assets/banner/signalstack-banner.png" alt="SignalStack Banner" width="100%" />
 </p>
 
 # 🚀 Welcome to SignalStack
@@ -32,8 +32,8 @@ Each issue features selected readings, toolkits, and visual storytelling to brid
 
 ## 📬 Stay Connected
 
-- [Subscribe to Research Rundown](https://open.substack.com/pub/varna)
-- [Visit OpenStacks.dev](https://openstacks.dev/)
-- Contact: varna.sr@gmail.com
+- 📖 [Subscribe to Research Rundown](https://open.substack.com/pub/varna)
+- 🌐 [Explore OpenStacks.dev](https://openstacks.dev/)
+- ✉️ Contact: varna.sr@gmail.com
 
 ---
