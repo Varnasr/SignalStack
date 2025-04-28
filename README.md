@@ -67,3 +67,8 @@ SignalStack hosts:
 - ✉️ Contact: varna.sr@gmail.com
 
 ---
+
+## 📜 Changelog
+
+This project maintains an up-to-date [CHANGELOG.md](./CHANGELOG.md) that is automatically updated on every push to the `main` branch using GitHub Actions.
+All changes are documented automatically for better tracking and visibility.

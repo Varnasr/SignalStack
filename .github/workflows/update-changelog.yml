@@ -1,0 +1,32 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - main  # Replace 'main' if your default branch is different
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install auto-changelog
+        run: npm install -g auto-changelog
+
+      - name: Generate CHANGELOG.md
+        run: auto-changelog
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update CHANGELOG.md'
+          file_pattern: CHANGELOG.md
