@@ -3,7 +3,7 @@ name: Update Changelog
 on:
   push:
     branches:
-      - main  # Replace 'main' if your default branch is different
+      - main
 
 jobs:
   changelog:
@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install auto-changelog
-        run: npm install -g auto-changelog
+      - name: Install dependencies
+        run: npm install
 
       - name: Generate CHANGELOG.md
-        run: auto-changelog
+        run: npm run changelog
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
