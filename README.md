@@ -1,74 +1,64 @@
-<p align="center">
-  <a href="https://varnasr.github.io/SignalStack/" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Live%20Site-SignalStack-brightgreen?style=for-the-badge&logo=github" alt="View SignalStack Live Site">
-  </a>
-</p>
+# SignalStack
 
-# 🚀 SignalStack
+**Research Rundown newsletter archive and curated development resources.**
 
-**SignalStack** is the companion repository for the *Research Rundown* newsletter —  
-bringing you curated insights, research resources, and updates from the world of development policy, social research, and climate resilience.
+[![Part of OpenStacks](https://img.shields.io/badge/Part%20of-OpenStacks-blue)](https://openstacks.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Stay updated with live issues, featured tools, and companion notes.
+> Curated insights, research resources, and updates from the world of development policy, social research, and climate resilience.
 
 ---
 
-## 📖 Table of Contents
+## What This Is
 
-- [About SignalStack](#about-signalstack)
-- [Latest Issues](#latest-issues)
-- [Featured Tools](#featured-tools)
-- [Resources](#resources)
-- [What's New](#whats-new)
-- [Stay Connected](#stay-connected)
+SignalStack is the companion repository for the **Research Rundown** newsletter. It hosts archived newsletter issues, featured research tools, method spotlights, and curated resources for development practitioners.
 
----
+This is the **knowledge curation layer** of [OpenStacks for Change](https://openstacks.dev) — an open ecosystem of tools for public interest research and evaluation.
 
-## 📚 About SignalStack
+## What's Inside
 
-SignalStack hosts:
+```
+SignalStack/
+├── issues/          # Newsletter issue archives with summaries
+├── featured/        # Featured research tools and methods
+├── extras/          # Extended notes and companion materials
+├── assets/banner/   # Visual assets
+├── index.md         # Landing page content
+└── package.json     # Automation config
+```
 
-- Links to each live edition of *Research Rundown*.
-- Summaries and companion notes.
-- Featured research tools and resources for practitioners.
+## Newsletter Issues
 
----
+| Issue | Date | Topics |
+|-------|------|--------|
+| Issue 2 | April 2025 | Gender-responsive climate resilience, health equity |
+| Issue 1 | June 2024 | Food security, ocean gender equity |
 
-## 🗓️ Latest Issues
+## How It Connects
 
-- [Issue 2 (April 2025)](issues/april-2025/)
-- [Issue 1 (June 2024)](issues/june-2024/)
+SignalStack is one of several stacks in the [OpenStacks](https://openstacks.dev) ecosystem:
 
----
+| Stack | Focus | Link |
+|-------|-------|------|
+| [InsightStack](https://github.com/Varnasr/InsightStack) | MEL tools, calculators, documentation | Knowledge systems |
+| [FieldStack](https://github.com/Varnasr/FieldStack) | R notebooks for fieldwork & evaluation | Applied data work |
+| [EquityStack](https://github.com/Varnasr/EquityStack) | Python workflows for development data | Data pipelines |
+| **SignalStack** (this repo) | Research Rundown newsletter archive | You are here |
 
-## 🛠️ Featured Tools
+**SignalStack curates and highlights** tools and methods from the other stacks. If you find a tool here that interests you, follow the link to the relevant stack for the actual code.
 
-*(Coming soon — selected resources from issues.)*
+## Subscribe
 
----
+Follow the [Research Rundown newsletter](https://researchrundown.substack.com) for regular updates on development research, open data, and practitioner tools.
 
-## 📂 Resources
+## Contributing
 
-*(Coming soon — categorized guides, policy toolkits, research reports.)*
+Have a research tool, method, or resource to feature? See [CONTRIBUTING.md](CONTRIBUTING.md) or open an issue.
 
----
+## License
 
-## ✨ What's New
-
-- **April 2025**: Added Issue 2 featuring gender-responsive climate resilience, health equity toolkits, and research governance insights.
-- **June 2024**: Repository launched with Issue 1, covering food security, climate science, gender equity in oceans, and open science tools.
-
----
-
-## 📬 Stay Connected
-
-- 📖 [Subscribe to Research Rundown](https://open.substack.com/pub/varna)
-- 🌐 [Explore OpenStacks.dev](https://openstacks.dev/)
-- ✉️ Contact: varna.sr@gmail.com
+MIT — free to use, modify, and share. See [LICENSE](LICENSE).
 
 ---
 
-## 📜 Changelog
-
-This project maintains an up-to-date [CHANGELOG.md](./CHANGELOG.md) that is automatically updated on every push to the `main` branch using GitHub Actions.
-All changes are documented automatically for better tracking and visibility.
+**Created by [Varna Sri Raman](https://github.com/Varnasr)** — Development Economist & Social Researcher
