@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you reference this collection, please cite it as below."
+type: dataset
+title: "SignalStack"
+abstract: "Research Rundown newsletter archive and curated development resources."
+authors:
+  - family-names: "Sri Raman"
+    given-names: "Varna"
+version: 1.1.0
+date-released: "2025-04-27"
+license: MIT
+url: "https://openstacks.dev"
+repository-code: "https://github.com/Varnasr/SignalStack"
+keywords:
+  - development research
+  - newsletter
+  - climate resilience
+  - gender equity
+  - open science
