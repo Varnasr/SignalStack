@@ -9,7 +9,8 @@
   "author": "Varna Sri Raman",
   "license": "MIT",
   "scripts": {
-    "changelog": "auto-changelog"
+    "changelog": "auto-changelog",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "devDependencies": {
     "auto-changelog": "^2.4.0"
