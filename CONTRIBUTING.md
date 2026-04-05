@@ -55,6 +55,16 @@ npm install        # installs auto-changelog and sets up git hooks
 
 The `npm install` step automatically configures git hooks via the `prepare` script, which enforces commit message format and blocks sensitive files from being committed.
 
+## Large Files
+
+Images (PNG, JPG, GIF) and PDFs are tracked with [Git LFS](https://git-lfs.com/). Before adding binary assets, install LFS:
+
+```bash
+git lfs install
+```
+
+This is a one-time setup. After that, Git handles LFS-tracked files transparently. Avoid committing images larger than 500 KB without LFS — the pre-commit hook will warn you.
+
 ## Pull Request Checklist
 
 Before submitting your PR, please verify:
