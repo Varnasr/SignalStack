@@ -25,11 +25,10 @@
 *.ps1  text eol=crlf
 
 # Binary files — no diff, no merge, no line-ending conversion
-# Large images should use Git LFS (install with: git lfs install)
-*.png  filter=lfs diff=lfs merge=lfs -text
-*.jpg  filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.gif  filter=lfs diff=lfs merge=lfs -text
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
 *.ico  binary
 *.webp binary
 *.avif binary
@@ -38,7 +37,7 @@
 *.ttf  binary
 *.eot  binary
 *.otf  binary
-*.pdf  filter=lfs diff=lfs merge=lfs -text
+*.pdf  binary
 *.zip  binary
 *.gz   binary
 *.tar  binary
