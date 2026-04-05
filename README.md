@@ -65,7 +65,7 @@ Each issue is archived here with full summaries and key takeaways — not just l
 
 SignalStack is one of several open repositories in the [OpenStacks](https://openstacks.dev) ecosystem. Each stack serves a different purpose — SignalStack curates and highlights tools from the others.
 
-```
+```text
                           OpenStacks for Change
                     ________________________________
                    |                                |
@@ -86,7 +86,7 @@ SignalStack is one of several open repositories in the [OpenStacks](https://open
 
 ## Project Structure
 
-```
+```text
 SignalStack/
 ├── issues/                    # Newsletter issue archives (with full summaries)
 │   ├── april-2025/            #   Issue 2: Climate, gender, governance, health

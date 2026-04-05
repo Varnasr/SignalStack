@@ -40,6 +40,7 @@ A collection of resources challenging the dominance of Western epistemologies in
 ### 5. OpenAlex and ROR
 
 Two open-access tools for scholarly metadata and institutional mapping:
+
 - **OpenAlex** — a free, open catalogue of the world's scholarly works, authors, and institutions (a successor to Microsoft Academic Graph)
 - **ROR (Research Organization Registry)** — a community-led registry of persistent identifiers for research organisations
 

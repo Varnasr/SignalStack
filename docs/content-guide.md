@@ -60,7 +60,7 @@ Deep-dive reference files that accompany newsletter issues. Each note contains s
 
 If you reference specific content from this repo:
 
-```
+```text
 Sri Raman, V. (2024). SignalStack: Research Rundown Newsletter Archive.
 https://github.com/Varnasr/SignalStack
 ```

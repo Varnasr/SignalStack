@@ -76,6 +76,13 @@
     "epistemologies",
     "keepachangelog",
     "nvmrc",
-    "auto-changelog"
+    "auto-changelog",
+    "contextualise",
+    "bibtex",
+    "organised",
+    "CODEOWNERS",
+    "browsable",
+    "visualisation",
+    "toolkits"
   ]
 }

@@ -61,7 +61,7 @@ See the [Roadmap](roadmap.md) for planned work, or browse [open issues](https://
 
 ## Project Layout
 
-```
+```text
 SignalStack/
 ├── issues/          # One folder per newsletter issue
 ├── featured/        # One file per featured tool or resource

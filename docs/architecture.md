@@ -22,7 +22,7 @@ Markdown is the most portable, widely-supported format for structured text. It r
 
 ## Directory Structure
 
-```
+```text
 SignalStack/
 ├── issues/                         # Content: newsletter archives
 │   ├── april-2025/README.md        #   Each issue gets its own folder

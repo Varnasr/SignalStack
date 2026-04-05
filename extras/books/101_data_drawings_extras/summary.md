@@ -16,21 +16,27 @@
 The book is organised into 6 parts:
 
 ### Part 1: Supervised Learning
+
 Models that learn from labelled data. Covers linear and logistic regression, decision trees, random forests, gradient boosting, SVMs, neural networks, and key concepts like bias-variance tradeoff and cross-validation.
 
 ### Part 2: Unsupervised Learning
+
 Finding patterns without labels. Covers K-means clustering, hierarchical clustering, PCA, and dimensionality reduction techniques.
 
 ### Part 3: Probability & Statistics
+
 The mathematical foundations. Covers distributions, hypothesis testing, confidence intervals, Bayesian thinking, and common statistical tests.
 
 ### Part 4: Econometrics
+
 Causal inference methods used in economics and social science. Covers OLS regression, instrumental variables, difference-in-differences, regression discontinuity, and propensity score matching.
 
 ### Part 5: SQL
+
 Querying and manipulating data. Covers joins, aggregations, subqueries, window functions (LAG, LEAD, RANK), and common table expressions (CTEs).
 
 ### Part 6: Career
+
 Practical advice for data science job seekers. Covers portfolio building, interview preparation, communication skills, and navigating the job market.
 
 ---

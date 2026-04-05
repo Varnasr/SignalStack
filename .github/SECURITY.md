@@ -12,7 +12,7 @@ If you discover a security vulnerability in SignalStack, please report it respon
 
 **Do NOT open a public GitHub issue for security vulnerabilities.**
 
-Instead, please email **hello@impactmojo.in** with:
+Instead, please email **<hello@impactmojo.in>** with:
 
 - A description of the vulnerability
 - Steps to reproduce the issue

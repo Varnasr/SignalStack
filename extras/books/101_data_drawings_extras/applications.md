@@ -9,6 +9,7 @@ How the concepts from *101 Data Science Drawings* show up in real-world data sci
 **What it is:** Splitting your dataset into K folds, training on K-1 folds, and testing on the remaining fold. Repeat K times and average the results.
 
 **Where you'll use it:**
+
 - Comparing models before selecting one for production
 - Tuning hyperparameters (e.g., regularisation strength, tree depth)
 - Estimating how well a model will generalise to unseen data
@@ -22,6 +23,7 @@ How the concepts from *101 Data Science Drawings* show up in real-world data sci
 **What it is:** A technique for estimating treatment effects in observational studies. Each unit gets a "propensity score" — the predicted probability of receiving treatment — and treated units are matched to control units with similar scores.
 
 **Where you'll use it:**
+
 - Evaluating programme impact when randomised trials aren't feasible
 - Health policy research (e.g., comparing outcomes for patients who received an intervention vs. those who didn't)
 - Development economics — estimating the effect of a cash transfer programme
@@ -35,6 +37,7 @@ How the concepts from *101 Data Science Drawings* show up in real-world data sci
 **What it is:** Window functions that access data from previous rows (`LAG`) or subsequent rows (`LEAD`) in the result set without self-joining.
 
 **Where you'll use it:**
+
 - Calculating month-over-month or year-over-year changes
 - Detecting trends in time-series data (e.g., "did this metric increase from last quarter?")
 - Building dashboards that show deltas and growth rates
@@ -56,6 +59,7 @@ FROM monthly_sales;
 **What it is:** Applying a logarithmic function to skewed data to make it more normally distributed and to stabilise variance.
 
 **Where you'll use it:**
+
 - Modelling income, population, or any right-skewed variable
 - Interpreting regression coefficients as percentage changes (log-log or log-linear models)
 - Satisfying normality assumptions in statistical tests
@@ -69,6 +73,7 @@ FROM monthly_sales;
 **What it is:** Creating new input variables from raw data to improve model performance.
 
 **Where you'll use it:**
+
 - Extracting day-of-week, month, or hour from timestamps
 - Creating interaction terms (e.g., age × income)
 - Encoding categorical variables (one-hot, target encoding)
@@ -82,6 +87,7 @@ FROM monthly_sales;
 **What it is:** A randomised experiment comparing two variants (A and B) to determine which performs better on a defined metric.
 
 **Where you'll use it:**
+
 - Product decisions (e.g., which button colour gets more clicks)
 - Policy pilots (e.g., does SMS reminders improve clinic attendance)
 - Email campaigns and marketing optimisation

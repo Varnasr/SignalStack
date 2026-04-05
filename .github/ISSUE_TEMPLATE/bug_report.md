@@ -12,17 +12,21 @@ A clear description of what's wrong.
 **Page/URL**
 Which page is affected?
 
-**Steps to reproduce**
+### Steps to reproduce
+
 1. Go to '...'
 2. Click on '...'
 3. See error
 
-**Expected behavior**
+### Expected behavior
+
 What should happen instead?
 
-**Screenshots**
+### Screenshots
+
 If applicable, add screenshots.
 
-**Device**
+### Device
+
 - Browser: [e.g., Chrome 120]
 - Device: [e.g., desktop / iPhone 14]

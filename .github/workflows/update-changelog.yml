@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   changelog:
     runs-on: ubuntu-latest
@@ -31,5 +34,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: update CHANGELOG.md'
+          commit_message: 'Chore: update CHANGELOG.md'
           file_pattern: CHANGELOG.md
