@@ -1,0 +1,18 @@
+{
+  "output": "CHANGELOG.md",
+  "template": "keepachangelog",
+  "unreleased": true,
+  "commitLimit": false,
+  "hideCredit": false,
+  "sortCommits": "date-desc",
+  "replaceText": {
+    "Add:": "Added:",
+    "Fix:": "Fixed:",
+    "Update:": "Changed:",
+    "Docs:": "Documentation:",
+    "CI:": "CI/CD:",
+    "Chore:": "Maintenance:",
+    "Refactor:": "Refactored:",
+    "Test:": "Testing:"
+  }
+}
