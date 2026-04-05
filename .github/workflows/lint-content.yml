@@ -46,7 +46,10 @@ jobs:
         with:
           args: >-
             --no-progress
+            --accept "100..=399,403"
             --exclude "substack\\.com"
             --exclude "openstacks\\.dev"
+            --exclude "genderclimate\\.org"
+            --timeout 30
             "**/*.md"
           fail: true
