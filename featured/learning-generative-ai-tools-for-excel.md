@@ -45,4 +45,4 @@ Researchers and development practitioners often use Excel as their primary data 
 
 ---
 
-*Part of the [SignalStack](../../README.md) featured resources collection. Have a tool to suggest? [Open an issue](https://github.com/Varnasr/SignalStack/issues/new?template=feature_request.md).*
+*Part of the [SignalStack](../README.md) featured resources collection. Have a tool to suggest? [Open an issue](https://github.com/Varnasr/SignalStack/issues/new?template=feature_request.md).*

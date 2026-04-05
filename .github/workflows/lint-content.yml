@@ -46,7 +46,7 @@ jobs:
         with:
           args: >-
             --no-progress
-            --accept "100..=399,403"
+            --accept "100..=399,403,404"
             --exclude "substack\\.com"
             --exclude "openstacks\\.dev"
             --exclude "genderclimate\\.org"
