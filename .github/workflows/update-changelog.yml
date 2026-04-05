@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -35,8 +36,21 @@ jobs:
       - name: Generate CHANGELOG.md
         run: npm run changelog
 
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet CHANGELOG.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
         with:
-          commit_message: 'Chore: update CHANGELOG.md [skip ci]'
-          file_pattern: CHANGELOG.md
+          commit-message: 'Chore: update CHANGELOG.md'
+          branch: auto/changelog-update
+          title: 'Chore: update CHANGELOG.md'
+          body: Auto-generated changelog update from commit history.
+          delete-branch: true
