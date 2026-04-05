@@ -36,7 +36,7 @@ jobs:
         run: npm run changelog
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'Chore: update CHANGELOG.md [skip ci]'
           file_pattern: CHANGELOG.md
