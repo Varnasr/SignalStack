@@ -28,11 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Disable git hooks in CI
+        run: git config core.hooksPath /dev/null
+
       - name: Generate CHANGELOG.md
         run: npm run changelog
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'Chore: update CHANGELOG.md'
+          commit_message: 'Chore: update CHANGELOG.md [skip ci]'
           file_pattern: CHANGELOG.md
