@@ -1,75 +1,139 @@
-# SignalStack
+<p align="center">
+  <img src="./assets/banner/signalstack-banner.png" alt="SignalStack Banner" width="100%" />
+</p>
 
-**Research Rundown newsletter archive and curated development resources.**
+<h1 align="center">SignalStack</h1>
 
-[![Part of OpenStacks](https://img.shields.io/badge/Part%20of-OpenStacks-blue)](https://openstacks.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<p align="center">
+  <strong>The open knowledge base behind the <em>Research Rundown</em> newsletter.</strong><br>
+  Curated reports, tools, and companion materials for development researchers and practitioners.
+</p>
 
-> Curated insights, research resources, and updates from the world of development policy, social research, and climate resilience.
+<p align="center">
+  <a href="https://openstacks.dev"><img src="https://img.shields.io/badge/Part%20of-OpenStacks-blue" alt="Part of OpenStacks"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <a href="https://researchrundown.substack.com"><img src="https://img.shields.io/badge/Subscribe-Research%20Rundown-orange" alt="Subscribe"></a>
+  <a href="https://github.com/Varnasr/SignalStack/actions"><img src="https://img.shields.io/github/actions/workflow/status/Varnasr/SignalStack/lint-content.yml?label=content%20checks" alt="CI"></a>
+</p>
 
 ---
 
-## What This Is
+## Why SignalStack Exists
 
-SignalStack is the companion repository for the **Research Rundown** newsletter. It hosts archived newsletter issues, featured research tools, book companion materials, and curated resources for development practitioners.
+Development research moves fast. Critical reports from WHO, FAO, IPCC, and ODI are published constantly, but they're scattered across dozens of institutional websites with no single place to find, compare, or contextualise them.
 
-This is the **knowledge curation layer** of [OpenStacks for Change](https://openstacks.dev) -- an open ecosystem of tools for public interest research and evaluation.
+**SignalStack bridges that gap.** Each quarter, the [Research Rundown](https://researchrundown.substack.com) newsletter curates the most important new research — and this repository archives it all with summaries, source links, companion materials, and study resources that outlive any single newsletter issue.
 
-## What's Inside
+This is the **knowledge curation layer** of [OpenStacks for Change](https://openstacks.dev) — an open ecosystem of tools for public interest research and evaluation.
+
+---
+
+## Quick Start
+
+**Browse the content:**
+
+- [Newsletter Issues](issues/) — Archived issues with summaries and key takeaways
+- [Featured Tools](featured/) — Curated research tools and methods
+- [Book Companions](extras/books/) — Study aids and concept guides
+- [Extended Notes](extras/issue%20notes/) — Deep-dive source links and follow-up reading
+- [Full Documentation](docs/) — How the project works, how to contribute, and what's planned
+
+**Subscribe for updates:** [Research Rundown on Substack](https://researchrundown.substack.com)
+
+---
+
+## Newsletter Archive
+
+Each issue is archived here with full summaries and key takeaways — not just links to Substack.
+
+| Issue | Date | Themes | Highlights |
+|-------|------|--------|------------|
+| [Issue 2](issues/april-2025/) | Apr 2025 | Climate, Gender, Governance, Health | Gender-responsive climate resilience, WHO equity toolkit, BRICS+ governance shifts, visualising uncertainty |
+| [Issue 1](issues/june-2024/) | Jun 2024 | Food, Climate, Gender, Methods, Open Science | SOFI global hunger report, IPCC synthesis, ocean gender equity, decolonising research, OpenAlex |
+
+## Featured Resources
+
+| Resource | Type | Description |
+|----------|------|-------------|
+| [AI Tools for Excel](featured/learning-generative-ai-tools-for-excel.md) | Tool Guide | Using Copilot, ChatGPT, and AI assistants to supercharge Excel workflows for researchers |
+| [101 Data Science Drawings](extras/books/101_data_drawings_extras/) | Book Companion | Key concepts, applications, visual walkthroughs, and study resources for Raymond Lim's visual data science guide |
+| [THR June Notes](extras/issue%20notes/notes-on-THR-june-edition.md) | Extended Notes | Source links and follow-up resources for gender-responsive climate resilience, health equity, BRICS+, and more |
+
+---
+
+## The OpenStacks Ecosystem
+
+SignalStack is one of several open repositories in the [OpenStacks](https://openstacks.dev) ecosystem. Each stack serves a different purpose — SignalStack curates and highlights tools from the others.
+
+```
+                          OpenStacks for Change
+                    ________________________________
+                   |                                |
+    SignalStack ---+--- InsightStack --- FieldStack |
+   (you are here)  |        |               |      |
+                   |    EquityStack --------'      |
+                   |________________________________|
+```
+
+| Stack | What It Does | Language |
+|-------|-------------|----------|
+| **[InsightStack](https://github.com/Varnasr/InsightStack)** | MEL tools, sample size calculators, documentation templates | JavaScript |
+| **[FieldStack](https://github.com/Varnasr/FieldStack)** | R notebooks for fieldwork, surveys, and evaluation analysis | R |
+| **[EquityStack](https://github.com/Varnasr/EquityStack)** | Python workflows for econometrics, causal inference, and development data | Python |
+| **SignalStack** (this repo) | Research curation, newsletter archive, book companions | Markdown |
+
+---
+
+## Project Structure
 
 ```
 SignalStack/
-├── issues/              # Newsletter issue archives
-│   ├── april-2025/      # Issue 2
-│   └── june-2024/       # Issue 1
-├── featured/            # Featured research tools and methods
+├── issues/                    # Newsletter issue archives (with full summaries)
+│   ├── april-2025/            #   Issue 2: Climate, gender, governance, health
+│   └── june-2024/             #   Issue 1: Food security, climate, open science
+├── featured/                  # Featured research tools and methods
 ├── extras/
-│   ├── books/           # Book companion notes (101 Data Science Drawings)
-│   └── issue notes/     # Extended newsletter notes with source links
-├── assets/banner/       # Visual assets
-└── index.md             # Landing page content
+│   ├── books/                 # Book companion materials
+│   │   └── 101_data_drawings_extras/  # Concepts, applications, walkthroughs
+│   └── issue notes/           # Extended newsletter references and source links
+├── docs/                      # Project documentation (GitBook-style)
+│   ├── README.md              #   Documentation home
+│   ├── getting-started.md     #   Setup and orientation
+│   ├── content-guide.md       #   How to read and use this repo
+│   ├── architecture.md        #   How the project is structured
+│   └── roadmap.md             #   What's planned next
+├── assets/banner/             # Visual assets
+├── .github/                   # CI/CD, issue templates, security policy
+├── CONTRIBUTING.md            # How to contribute
+├── CHANGELOG.md               # Auto-generated from commits
+└── CITATION.cff               # How to cite this project
 ```
-
-## Newsletter Issues
-
-| Issue | Date | Topics | Status |
-|-------|------|--------|--------|
-| [Issue 2](issues/april-2025/) | April 2025 | Gender-responsive climate resilience, health equity, BRICS+, visualizing uncertainty | Published |
-| [Issue 1](issues/june-2024/) | June 2024 | Food security, IPCC synthesis, ocean gender equity, decolonising research, OpenAlex | Published |
-
-## Extras
-
-| Resource | Description |
-|----------|-------------|
-| [101 Data Science Drawings](extras/books/101_data_drawings_extras/) | Companion notes for Raymond Lim's visual data science guide |
-| [THR June Notes](extras/issue%20notes/notes-on-THR-june-edition.md) | Extended links and references for the June edition |
-| [AI Tools for Excel](featured/learning-generative-ai-tools-for-excel.md) | Featured tool: using AI to supercharge Excel workflows |
-
-## How It Connects
-
-SignalStack is one of several stacks in the [OpenStacks](https://openstacks.dev) ecosystem:
-
-| Stack | Focus |
-|-------|-------|
-| [InsightStack](https://github.com/Varnasr/InsightStack) | MEL tools, calculators, documentation |
-| [FieldStack](https://github.com/Varnasr/FieldStack) | R notebooks for fieldwork and evaluation |
-| [EquityStack](https://github.com/Varnasr/EquityStack) | Python workflows for development data |
-| **SignalStack** (this repo) | Research Rundown newsletter archive |
-
-SignalStack curates and highlights tools and methods from the other stacks. If you find a tool here that interests you, follow the link to the relevant stack for the actual code.
-
-## Subscribe
-
-Follow the [Research Rundown newsletter](https://researchrundown.substack.com) for regular updates on development research, open data, and practitioner tools.
 
 ## Contributing
 
-Have a research tool, method, or resource to feature? See [CONTRIBUTING.md](CONTRIBUTING.md) or open an issue.
+We welcome contributions — whether it's fixing a broken link, suggesting a resource, or adding content. See the [Contributing Guide](CONTRIBUTING.md) for commit conventions, setup instructions, and PR guidelines.
+
+## Citation
+
+If you reference this collection in academic or professional work:
+
+```bibtex
+@misc{signalstack,
+  author = {Sri Raman, Varna},
+  title = {SignalStack: Research Rundown Newsletter Archive and Curated Development Resources},
+  year = {2024},
+  url = {https://github.com/Varnasr/SignalStack},
+  license = {MIT}
+}
+```
 
 ## License
 
-MIT -- free to use, modify, and share. See [LICENSE](LICENSE).
+MIT — free to use, modify, and share. See [LICENSE](LICENSE).
 
 ---
 
-**Created by [Varna Sri Raman](https://github.com/Varnasr)** -- Development Economist & Social Researcher
+<p align="center">
+  <strong>Created by <a href="https://github.com/Varnasr">Varna Sri Raman</a></strong> — Development Economist & Social Researcher<br>
+  <a href="https://researchrundown.substack.com">Newsletter</a> · <a href="https://openstacks.dev">OpenStacks</a> · <a href="CONTRIBUTING.md">Contribute</a>
+</p>

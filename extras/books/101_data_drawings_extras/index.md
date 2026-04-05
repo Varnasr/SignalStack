@@ -1,11 +1,22 @@
-# 101 Data Science Drawings - Extras Index
+---
+layout: default
+title: 101 Data Science Drawings
+---
 
-Welcome to the **101 Data Science Drawings** companion extras! This folder is designed to support readers who want to reinforce their learning through structured summaries, applied insights, and direct links to visuals and demos.
+# 101 Data Science Drawings — Companion Extras
 
-Explore the resources:
+Structured study aids for Raymond Lim's visual data science guide. Each page covers a different angle — from definitions to real-world applications to video walkthroughs.
 
-- [Summary](./summary.md)
-- [Key Concepts & Definitions](./key_concepts.md)
-- [Applications in Practice](./applications.md)
-- [Visual Walkthroughs with TikTok Links](./visual_walkthroughs.md)
-- [Further Resources & Reading](./resources.md)
+## Explore
+
+| Resource | What You'll Find |
+|----------|-----------------|
+| [Summary](./summary.md) | Book overview, audience, and chapter-by-chapter breakdown |
+| [Key Concepts & Definitions](./key_concepts.md) | Core terms across supervised learning, statistics, econometrics, and SQL |
+| [Applications in Practice](./applications.md) | How concepts show up in interviews, dashboards, and production systems |
+| [Visual Walkthroughs](./visual_walkthroughs.md) | Short video explainers from @MinuteData with a suggested learning workflow |
+| [Further Resources & Reading](./resources.md) | Books, courses, tools, and related OpenStacks repositories |
+
+---
+
+Start with the [Summary](./summary.md) if you're new, or jump to [Key Concepts](./key_concepts.md) for quick reference.

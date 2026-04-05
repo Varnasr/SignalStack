@@ -1,0 +1,19 @@
+title: SignalStack
+description: Research Rundown newsletter archive and curated development resources
+url: https://varnasr.github.io
+baseurl: /SignalStack
+remote_theme: pages-themes/cayman@v0.2.0
+
+plugins:
+  - jekyll-remote-theme
+
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - .auto-changelog
+  - .cspell.json
+  - .markdownlint.json
+  - .editorconfig
+  - .nvmrc
+  - .githooks/

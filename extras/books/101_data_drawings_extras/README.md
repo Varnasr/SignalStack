@@ -1,21 +1,26 @@
-# 101 Data Science Drawings - Companion Extras
+# 101 Data Science Drawings — Companion Extras
 
-This folder contains structured companion resources to Raymond Lim's book *101 Data Science Drawings*.
-It supports quick learning and reference through:
+Structured companion resources for Raymond Lim's book *101 Data Science Drawings*. Designed for quick learning, exam prep, and practical reference.
 
-- Summarized notes for each topic
-- Definitions and refresher concepts
-- Use-case applications across fields
-- Links to visual TikTok walkthroughs
-- Study and practice resources
+## What's Here
 
-## Folder Contents
+| File | Purpose | Best For |
+|------|---------|----------|
+| [Summary](summary.md) | Book overview, audience, and structure breakdown | Getting oriented, deciding what to study |
+| [Key Concepts](key_concepts.md) | Definitions table with "When It Matters" context | Quick reference, interview prep |
+| [Applications](applications.md) | Real-world use cases with examples and pitfalls | Understanding how concepts apply in practice |
+| [Visual Walkthroughs](visual_walkthroughs.md) | Video explainers with learning workflow | Visual learners, concept reinforcement |
+| [Resources](resources.md) | Books, courses, tools, and related repos | Going deeper, finding practice environments |
 
-- `index.md` -- Overview and table of contents
-- `summary.md` -- Book summary across all 6 parts
-- `key_concepts.md` -- Definitions and annotated ideas
-- `applications.md` -- Real-world applications and relevance
-- `visual_walkthroughs.md` -- TikTok walkthrough links
-- `resources.md` -- Further study recommendations
+## Suggested Study Path
 
-This folder is part of the broader OpenStacks and Research Rundown extras ecosystem.
+1. Start with the **[Summary](summary.md)** to understand the book's structure
+2. Use **[Key Concepts](key_concepts.md)** as a reference while reading
+3. Watch the **[Visual Walkthroughs](visual_walkthroughs.md)** to reinforce understanding
+4. Try the **[Applications](applications.md)** to see how concepts work in practice
+5. Explore **[Resources](resources.md)** for further learning and hands-on practice
+
+## Related
+
+- [EquityStack](https://github.com/Varnasr/EquityStack) — Python notebooks for econometrics and causal inference
+- [FieldStack](https://github.com/Varnasr/FieldStack) — R notebooks for fieldwork and evaluation
