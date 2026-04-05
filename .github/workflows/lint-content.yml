@@ -50,6 +50,8 @@ jobs:
             --exclude "substack\\.com"
             --exclude "openstacks\\.dev"
             --exclude "genderclimate\\.org"
+            --exclude "southcentre\\.int"
             --timeout 30
+            --max-retries 2
             "**/*.md"
           fail: true
