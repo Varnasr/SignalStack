@@ -46,5 +46,7 @@ jobs:
         with:
           args: >-
             --no-progress
+            --exclude "substack\\.com"
+            --exclude "openstacks\\.dev"
             "**/*.md"
           fail: true
