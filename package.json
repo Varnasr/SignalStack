@@ -16,6 +16,6 @@
     "prepare": "git config core.hooksPath .githooks"
   },
   "devDependencies": {
-    "auto-changelog": "^2.5.0"
+    "auto-changelog": "^2.5.1"
   }
 }
