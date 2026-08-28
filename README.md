@@ -14,7 +14,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
   <a href="https://researchrundown.substack.com"><img src="https://img.shields.io/badge/Subscribe-Research%20Rundown-orange" alt="Subscribe"></a>
   <a href="https://github.com/Varnasr/SignalStack/actions"><img src="https://img.shields.io/github/actions/workflow/status/Varnasr/SignalStack/lint-content.yml?label=content%20checks" alt="CI"></a>
+  <a href="https://github.com/Varnasr/OpenStacks-for-Change/blob/main/MAINTENANCE.md"><img src="https://img.shields.io/badge/Status-Stable-0969da" alt="Status: Stable"></a>
 </p>
+
+> **Status: Stable.** The archive is complete and correct, but this repository is not
+> under active development. New newsletter issues are published on Substack first; this
+> archive is updated in batches. See the [maintenance policy](https://github.com/Varnasr/OpenStacks-for-Change/blob/main/MAINTENANCE.md).
 
 ---
 
