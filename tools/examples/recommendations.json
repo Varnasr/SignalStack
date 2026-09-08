@@ -1,0 +1,16 @@
+[
+  {
+    "recommendation": "Introduce transport support for antenatal visits",
+    "finding": "42 per cent of surveyed women reported difficulty reaching the health facility (household survey, Q14).",
+    "assumption": "Travel time or transport availability, rather than cost, staff attitudes or opening hours, is what constrains service use.",
+    "evidence_for_assumption": "Reported difficulty is higher in villages more than 5 km from the PHC (58 per cent) than within 5 km (31 per cent); no data on cost or staffing yet.",
+    "what_would_make_it_wrong": "If difficulty is driven by facility opening hours or by who accompanies women, a transport subsidy moves money and not attendance. A qualitative follow-up in the two worst villages would settle this."
+  },
+  {
+    "recommendation": "Scale the programme to three more districts",
+    "finding": "Attendance rose 11 points in treatment villages over 18 months.",
+    "assumption": "",
+    "evidence_for_assumption": "",
+    "what_would_make_it_wrong": ""
+  }
+]

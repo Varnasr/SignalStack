@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SignalStack · The Research Rundown, archived and made usable</title>
+<meta name="description" content="Every edition of the Research Rundown newsletter in full, its recurring sections compiled into reference pages, and its methods notes turned into scripts. Part of the OpenStacks family.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/stack.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="./"><span class="dot"></span> SignalStack</a>
+    <nav>
+      <a class="opt" href="#archive">Archive</a>
+      <a class="opt" href="#companions">Companions</a>
+      <a class="opt" href="#tools">Tools</a>
+      <a href="https://github.com/Varnasr/SignalStack">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="word">Signal<span class="s2">Stack</span></h1>
+  <p class="lede">The <a href="https://varna.substack.com">Research Rundown</a> newsletter, archived in full
+    and made usable. Every edition as text, its recurring sections compiled into standing reference pages,
+    and the methods notes turned into scripts you can run. Companion to the newsletter, beside the
+    <a href="https://openstacks.dev">OpenStacks</a> stacks rather than one of them.</p>
+  <div class="counts">
+    <div class="hi"><b>13</b><span>Posts archived</span></div>
+    <div><b>26,000</b><span>Words of newsletter</span></div>
+    <div><b>8</b><span>Companion pages</span></div>
+    <div><b>4</b><span>Scripts, 23 tests</span></div>
+  </div>
+</section>
+
+<main id="main">
+
+<section class="band white" id="archive">
+  <div class="band-h">
+    <h2>Archive</h2>
+    <p class="sub">Every post on varna.substack.com, as Markdown, with a link back to the original</p>
+  </div>
+  <div class="rows">
+    <a class="row" href="archive/">
+      <span class="t"><b>All posts</b><span>13, newest first</span></span>
+      <span class="d">Seven monthly editions from June 2024 to July 2026, three September 2026 dailies, one measurement and survey methods brief, and two essays. Synced by script from the Substack API; the text is the newsletter's, typos included.</span>
+    </a>
+    <a class="row" href="archive/SECTIONS.html">
+      <span class="t"><b>Recurring sections</b><span>by edition</span></span>
+      <span class="d">Where Research praxis, Disambiguation corner, Researchers worth following, One dataset to open and the rest appear, so you can follow one thread through every issue.</span>
+    </a>
+    <a class="row" href="archive/2026-07-08-the-research-rundown-july-2026.html">
+      <span class="t"><b>Latest edition</b><span>July 2026</span></span>
+      <span class="d">The electoral rolls, heat mortality the state does not count, the Panagariya poverty claim, delimitation, and how to read a deletion rate.</span>
+    </a>
+  </div>
+  <p class="note">The newsletter is written by Varna Sri Raman and published first on Substack. This archive follows it; it does not replace it. <a href="https://varna.substack.com/subscribe">Subscribe there</a>.</p>
+</section>
+
+<section class="band navy" id="companions">
+  <div class="band-h">
+    <h2>Companions</h2>
+    <p class="sub">The parts of an edition that outlive it, pulled out of every issue and laid end to end</p>
+  </div>
+  <div class="tiles">
+    <a class="tile" href="companions/praxis.html">
+      <p class="meta">7 notes</p>
+      <h3>Research praxis</h3>
+      <p>How to read a deletion rate, what a poverty line actually is, a finding is not an inference, three kinds of participation.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/glossary.html">
+      <p class="meta">10 entries</p>
+      <h3>Disambiguation corner</h3>
+      <p>SIR, NPR and NRC. BPL, SECC, MPI and the poverty line. Gig, informal and platform worker. Allocation and expenditure.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/methods.html">
+      <p class="meta">4 notes</p>
+      <h3>Methods corner</h3>
+      <p>Odds and likelihood, reach and impact, participation as a design property, the Hawthorne effect.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/researchers.html">
+      <p class="meta">15 people</p>
+      <h3>Researchers worth following</h3>
+      <p>Everyone the newsletter has recommended, with what it said about their work and where.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/reading.html">
+      <p class="meta">35 items</p>
+      <h3>Papers and reports</h3>
+      <p>Everything recommended reading, edition by edition, with the editor's take where one was given.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/books.html">
+      <p class="meta">13 items</p>
+      <h3>Books and long reads</h3>
+      <p>Books, a documentary and long reads, from Ghodsee to Banu Mushtaq to Jan Breman.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/datasets.html">
+      <p class="meta">1 so far</p>
+      <h3>Datasets worth opening</h3>
+      <p>The India State of Forest Report 2023, and what to read before using forest cover as a biodiversity outcome.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+    <a class="tile" href="companions/tools.html">
+      <p class="meta">11 items</p>
+      <h3>Tools and free resources</h3>
+      <p>Platforms and resources the newsletter has pointed at, by edition, links as published.</p>
+      <p class="go">Read &rarr;</p>
+    </a>
+  </div>
+  <p class="note">All eight pages are generated from the archive by <code>scripts/build_companions.py</code> and carry a link to the edition each entry came from. See the <a href="companions/errata.html">errata</a> for the two places the newsletter's own text is known to be wrong.</p>
+</section>
+
+<section class="band white" id="tools">
+  <div class="band-h">
+    <h2>Tools</h2>
+    <p class="sub">Four scripts that do what the methods notes describe · standard-library Python · 23 tests</p>
+  </div>
+  <div class="rows">
+    <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/deletion_rate.py">
+      <span class="t"><b>Deletion rate</b><span>Python</span></span>
+      <span class="d">Forty-seven lakh electors removed: alarming, or ordinary churn? Runs the July 2026 note's four checks, denominator, baseline attrition, draft or final, and who bears the error, on any roll figure.</span>
+    </a>
+    <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/poverty_lines.py">
+      <span class="t"><b>Poverty lines</b><span>Python</span></span>
+      <span class="d">Is $2.15 a day more or less than the Tendulkar line? Puts the World Bank and Indian committee lines in rupees per person per month at one price year, using the World Bank's PPP and CPI series, and finds the price year behind any figure you are handed.</span>
+    </a>
+    <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/odds_likelihood.py">
+      <span class="t"><b>Odds and likelihood</b><span>Python</span></span>
+      <span class="d">Is an odds ratio of 3 "three times as likely"? Converts odds and probability, computes odds ratio against relative risk from a 2x2 table and says when they diverge, and plots a binomial likelihood so it is visibly not a probability.</span>
+    </a>
+    <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/audits.py">
+      <span class="t"><b>Audits</b><span>Python</span></span>
+      <span class="d">Does each recommendation in the report rest on a finding, an assumption, evidence for it, and a way it could be wrong? Does "participatory" match where authority sits? Two checklists as JSON you fill in, and a check that fails the report until they are answered.</span>
+    </a>
+  </div>
+  <p class="note">Each script names the edition it comes from. <code>python -m pytest tests/</code> runs the suite; nothing needs installing beyond pytest. Full guide in <a href="tools/">tools/</a>.</p>
+</section>
+
+<section class="band ash">
+  <div class="band-h">
+    <h2>How it stays current</h2>
+    <p class="sub">Scripts, not hands</p>
+  </div>
+  <div class="prose">
+    <p><code>scripts/sync_substack.py</code> reads the public Substack API, writes each post to <code>archive/</code> as Markdown with front matter, and rebuilds the archive index and the recurring-sections index. <code>scripts/build_companions.py</code> reads the archive and rebuilds the eight companion pages. A monthly workflow runs both and opens a pull request when anything changed; nothing lands on <code>main</code> without the tests and lints passing. <code>build_companions.py --check</code> fails CI if the companions drift from the archive.</p>
+    <p>Part of the <a href="https://openstacks.dev">OpenStacks</a> family: <a href="https://varnasr.github.io/InsightStack/">InsightStack</a> for MEL tools and survey data loaders, <a href="https://varnasr.github.io/FieldStack/">FieldStack</a> for field operations in R, <a href="https://varnasr.github.io/EquityStack/">EquityStack</a> for distributional analysis in Python. SignalStack is the newsletter's companion, beside them rather than one of them.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="fl">
+    <a href="./">SignalStack</a>
+    <a href="https://varna.substack.com">Research Rundown</a>
+    <a href="https://openstacks.dev">OpenStacks</a>
+    <a href="https://github.com/Varnasr/SignalStack">Source</a>
+  </div>
+  <p>Varna Sri Raman. Built for open knowledge, and licensed so you can take it.</p>
+</footer>
+</body>
+</html>

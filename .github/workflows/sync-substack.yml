@@ -1,0 +1,40 @@
+name: Sync newsletter archive
+
+# Pulls any new posts from varna.substack.com into archive/, rebuilds the
+# companion pages, and opens a pull request if anything changed. Nothing is
+# pushed to main directly: the PR runs the tests and lints first, and a person
+# merges it. Monthly, because the newsletter is roughly monthly; run it by
+# hand from the Actions tab after an edition goes out.
+
+on:
+  schedule:
+    - cron: "0 6 2 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sync archive
+        run: python scripts/sync_substack.py
+      - name: Rebuild companions
+        run: python scripts/build_companions.py
+      - name: Open a pull request if anything changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: sync/substack
+          title: "Update: sync newsletter archive"
+          commit-message: "Update: sync newsletter archive from varna.substack.com"
+          body: |
+            New or changed posts from varna.substack.com, with the companion
+            pages rebuilt. Check `archive/README.md` for what was added and
+            `companions/` for how it was compiled.
+          delete-branch: true

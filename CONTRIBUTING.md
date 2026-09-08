@@ -1,86 +1,33 @@
-# Contributing to SignalStack
+# Contributing
 
-Thanks for your interest in contributing to SignalStack! Whether you're fixing a broken link, suggesting a resource, or adding a new newsletter issue, your help is welcome.
+Most of this repository is generated, so most contributions are to the
+scripts rather than the content.
 
-## How to Contribute
+## What to change where
 
-1. **Fork** this repository
-2. **Create a branch** from `main` with a descriptive name
-3. **Make your changes** following the guidelines below
-4. **Open a pull request** with a clear description of what you changed and why
+| You want to | Change |
+| --- | --- |
+| Fix how a post renders in `archive/` | `scripts/sync_substack.py` (`_ToMarkdown`), then re-run it. Never edit `archive/` by hand; the next sync overwrites it. |
+| Fix how a companion page is compiled | `scripts/build_companions.py` (`entries()`, `people()`), then re-run it. Never edit the eight generated pages. |
+| Record an error in the newsletter's text | `companions/errata.md`. The archive stays verbatim. |
+| Add or fix a tool | `tools/`, with a test in `tests/test_tools.py` pinned to a closed-form answer or a cited figure. |
+| Fix the site | `index.html`, `_layouts/default.html`, `assets/css/stack.css`. The CSS is shared with the other stacks; change it in one place and copy it. |
 
-## What You Can Contribute
+The newsletter itself is not edited here. It is published on Substack by its
+author and archived by script.
 
-- **Newsletter content** — New issue archives, extended notes, or source links
-- **Featured resources** — Tools, methods, or frameworks relevant to development research
-- **Book companion materials** — Notes, extras, or study resources
-- **Bug fixes** — Broken links, typos, formatting issues
-- **Translations** — Translated versions of existing content
-
-## Commit Message Format
-
-All commits must use a prefix from this list:
-
-| Prefix | Use For |
-|--------|---------|
-| `Add:` | New feature, course, or tool |
-| `Fix:` | Bug fix or broken link |
-| `Update:` | Improvement to existing content or code |
-| `Translate:` | Translation work |
-| `Docs:` | Documentation changes |
-| `Refactor:` | Code restructuring (no behaviour change) |
-| `Test:` | Adding or updating tests |
-| `CI:` | CI/CD pipeline changes |
-| `Chore:` | Maintenance (deps, configs, tooling) |
-
-**Example:** `Add: interactive Theory of Change lab`
-
-Keep the subject line under 72 characters. These conventions are enforced by a commit-msg hook.
-
-## Content Guidelines
-
-- Write in clear, accessible English
-- Use [Markdown](https://www.markdownguide.org/) for all content files
-- Include source links for any claims, data, or references
-- Use descriptive link text (avoid "click here")
-- Keep file and folder names lowercase with hyphens (e.g., `my-new-resource.md`)
-
-## Setting Up Locally
+## Before opening a pull request
 
 ```bash
-git clone https://github.com/Varnasr/SignalStack.git
-cd SignalStack
-npm install        # installs auto-changelog and sets up git hooks
+python -m pytest tests/
+python scripts/build_companions.py --check
 ```
 
-The `npm install` step automatically configures git hooks via the `prepare` script, which enforces commit message format and blocks sensitive files from being committed.
+Markdown you write by hand is linted with markdownlint and cspell in CI, and
+its links checked with lychee. Generated files are excluded from all three.
 
-## Large Files
+## Commit messages
 
-Images (PNG, JPG, GIF) and PDFs are tracked with [Git LFS](https://git-lfs.com/). Before adding binary assets, install LFS:
-
-```bash
-git lfs install
-```
-
-This is a one-time setup. After that, Git handles LFS-tracked files transparently. Avoid committing images larger than 500 KB without LFS — the pre-commit hook will warn you.
-
-## Pull Request Checklist
-
-Before submitting your PR, please verify:
-
-- [ ] Links are working and point to the correct destinations
-- [ ] Markdown renders correctly (preview in your editor or on GitHub)
-- [ ] Commit messages follow the prefix convention above
-- [ ] No sensitive files (.env, credentials, keys) are included
-
-## Reporting Issues
-
-- **Broken links or content errors** — Open a [Content Issue](https://github.com/Varnasr/SignalStack/issues/new?template=content_issue.md)
-- **Bugs** — Open a [Bug Report](https://github.com/Varnasr/SignalStack/issues/new?template=bug_report.md)
-- **Ideas** — Open a [Feature Request](https://github.com/Varnasr/SignalStack/issues/new?template=feature_request.md)
-- **Security vulnerabilities** — See [SECURITY.md](.github/SECURITY.md) (do NOT open a public issue)
-
-## License
-
-By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+Start with one of `Add:`, `Fix:`, `Update:`, `Docs:`, `Refactor:`, `Test:`,
+`CI:`, `Chore:`. The `commit-msg` hook in `.githooks/` enforces it;
+`npm install` installs the hook.

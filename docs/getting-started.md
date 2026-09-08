@@ -1,75 +1,51 @@
-# Getting Started
+# Getting started
 
-## For Readers
+## Read
 
-No setup needed. Browse the repository directly on GitHub:
+No setup. Open [companions/](../companions/) for the compiled sections or
+[archive/](../archive/) for editions as sent. On the site,
+[varnasr.github.io/SignalStack](https://varnasr.github.io/SignalStack/).
 
-- **[Newsletter Issues](../issues/)** — Start here for curated research summaries
-- **[Featured Tools](../featured/)** — Highlighted tools and methods for practitioners
-- **[Book Companions](../extras/books/)** — Study aids with definitions, applications, and walkthroughs
-- **[Extended Notes](../extras/issue%20notes/)** — Deep-dive source links for newsletter topics
+## Run the tools
 
-Each newsletter issue page includes summaries and key takeaways so you can get value without leaving the repo.
-
----
-
-## For Contributors
-
-### Prerequisites
-
-- [Git](https://git-scm.com/) (any recent version)
-- [Node.js](https://nodejs.org/) 20 or later (for git hooks and changelog generation)
-- A text editor with Markdown support (VS Code, Obsidian, or similar)
-
-### Setup
+Python 3.10 or later. Nothing to install.
 
 ```bash
-# 1. Fork and clone
-git clone https://github.com/YOUR_USERNAME/SignalStack.git
+git clone https://github.com/Varnasr/SignalStack.git
 cd SignalStack
-
-# 2. Install dependencies (sets up git hooks automatically)
-npm install
-
-# 3. Create a branch
-git checkout -b add/your-contribution-name
+python tools/poverty_lines.py --year 2024
+python tools/deletion_rate.py --removed 4700000 --roll 78900000 --stage draft
 ```
 
-The `npm install` step runs the `prepare` script, which configures git to use the project's commit hooks. These hooks enforce:
-
-- **Commit message format** — Messages must start with a prefix like `Add:`, `Fix:`, `Update:`, etc.
-- **Sensitive file blocking** — Prevents accidental commits of `.env`, credentials, or key files
-- **Large file warnings** — Flags files over 500 KB
-
-### Verifying Your Setup
+## Run the tests
 
 ```bash
-# This should show the hooks path is set to .githooks
-git config core.hooksPath
-# Expected output: .githooks
-
-# Try a test commit (this should fail with a format error)
-git commit --allow-empty -m "test"
-# Expected: "Invalid commit message format" error
+pip install pytest
+python -m pytest tests/
+python scripts/build_companions.py --check
 ```
 
-### What to Work On
+## Sync the archive
 
-See the [Roadmap](roadmap.md) for planned work, or browse [open issues](https://github.com/Varnasr/SignalStack/issues) for things that need help.
-
----
-
-## Project Layout
-
-```text
-SignalStack/
-├── issues/          # One folder per newsletter issue
-├── featured/        # One file per featured tool or resource
-├── extras/          # Book companions and extended notes
-├── docs/            # This documentation (you are here)
-├── .github/         # CI workflows, issue templates, security policy
-├── .githooks/       # Pre-commit and commit-msg hooks
-└── assets/          # Images and visual assets (Git LFS tracked)
+```bash
+python scripts/sync_substack.py --check     # exit 1 if Substack has posts we do not
+python scripts/sync_substack.py             # fetch them
+python scripts/build_companions.py          # recompile the companions
 ```
 
-See [Architecture](architecture.md) for a detailed breakdown of each directory and the reasoning behind the structure.
+The sync reads the public Substack API; no key is needed. The monthly
+workflow does the same and opens a pull request.
+
+## Build the site locally
+
+GitHub Pages builds it with Jekyll and `jekyll-readme-index`. Locally:
+
+```bash
+gem install bundler jekyll jekyll-readme-index
+jekyll serve
+```
+
+Do not check links against `python -m http.server`: it serves directory
+listings, so every folder link passes locally and fails in production. Build
+with Jekyll and check that `_site/archive/index.html` and
+`_site/companions/index.html` exist.

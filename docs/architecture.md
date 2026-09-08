@@ -1,113 +1,56 @@
 # Architecture
 
-How SignalStack is structured, what tools it uses, and why.
-
----
-
-## Design Decisions
-
-### Why a Git repository instead of a CMS?
-
-- **Version history** — Every change is tracked and attributable
-- **Open contributions** — Anyone can fork, improve, and submit a PR
-- **No vendor lock-in** — Content is plain Markdown, readable anywhere
-- **CI/CD integration** — Automated quality checks on every change
-- **Part of a larger ecosystem** — Consistent tooling across all OpenStacks repos
-
-### Why Markdown?
-
-Markdown is the most portable, widely-supported format for structured text. It renders natively on GitHub, works with static site generators (Jekyll, Hugo, MkDocs), and can be converted to PDF, HTML, or EPUB.
-
----
-
-## Directory Structure
+## The pipeline
 
 ```text
-SignalStack/
-├── issues/                         # Content: newsletter archives
-│   ├── april-2025/README.md        #   Each issue gets its own folder
-│   └── june-2024/README.md
-├── featured/                       # Content: tool and method reviews
-│   └── *.md                        #   One file per featured resource
-├── extras/                         # Content: companion materials
-│   ├── books/                      #   Book-specific study aids
-│   └── issue notes/                #   Extended newsletter references
-├── docs/                           # Meta: project documentation
-├── .github/                        # Infra: GitHub-specific config
-│   ├── workflows/                  #   CI/CD pipelines
-│   │   ├── lint-content.yml        #     Markdown lint + spell check + link check
-│   │   └── update-changelog.yml    #     Auto-generate CHANGELOG on push to main
-│   ├── ISSUE_TEMPLATE/             #   Bug, feature, and content issue forms
-│   ├── pull_request_template.md    #   PR checklist
-│   ├── SECURITY.md                 #   Vulnerability reporting policy
-│   ├── CODEOWNERS                  #   Default reviewers
-│   └── dependabot.yml              #   Automated dependency updates
-├── .githooks/                      # Infra: local git hooks
-│   ├── pre-commit                  #   Block sensitive files, warn on large files
-│   └── commit-msg                  #   Enforce commit message prefix convention
-├── assets/banner/                  # Media: images (Git LFS tracked)
-├── CONTRIBUTING.md                 # Meta: contribution guidelines
-├── CHANGELOG.md                    # Meta: auto-generated change log
-├── CITATION.cff                    # Meta: machine-readable citation
-├── LICENSE                         # Legal: MIT license
-├── package.json                    # Infra: Node dependencies and scripts
-├── .auto-changelog                 # Config: changelog generation settings
-├── .markdownlint.json              # Config: markdown linting rules
-├── .cspell.json                    # Config: spell checker dictionary
-├── .editorconfig                   # Config: editor formatting standards
-├── .gitattributes                  # Config: line endings + LFS tracking
-└── .nvmrc                          # Config: Node.js version
+varna.substack.com  --(sync_substack.py)-->  archive/*.md
+                                                 |
+                              (build_companions.py)
+                                                 v
+                                          companions/*.md
 ```
 
----
+`scripts/sync_substack.py` pages `/api/v1/archive?sort=new` to list posts,
+fetches each post's `body_html` from `/api/v1/posts/<slug>`, converts it
+with a small `HTMLParser` subclass, and writes the file with front matter.
+It then rewrites `archive/README.md` and `archive/SECTIONS.md`. `--check`
+compares the listing with the files on disk and exits 1 if the archive is
+behind, without writing.
 
-## CI/CD Pipeline
+`scripts/build_companions.py` splits every archived post on its `##`, `###`
+and `####` headings, matches section headings against a small keyword table,
+and derives each entry's title from the heading suffix, a sub-heading, or a
+bold first line, in that order. `--check` rebuilds to memory and exits 1 if
+the eight generated files would change.
 
-### `lint-content.yml` — Runs on push and PR to `main`
+## Why generated
 
-Three parallel jobs:
+The previous contents of this repository were written by hand and described
+as the newsletter's issues. They matched no edition. A generated archive can
+be wrong in one way only, a converter bug, and that is fixed once in the
+script rather than post by post.
 
-| Job | Tool | What It Checks |
-|-----|------|---------------|
-| **Markdown Lint** | [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) | Consistent formatting, heading structure, list syntax |
-| **Spell Check** | [cspell](https://cspell.org/) | Typos and misspellings (with a project-specific dictionary in `.cspell.json`) |
-| **Link Check** | [lychee](https://github.com/lycheeverse/lychee) | Broken external and internal links |
+## Workflows
 
-### `update-changelog.yml` — Runs on push to `main`
+| Workflow | Trigger | What it does |
+| --- | --- | --- |
+| `tests.yml` | push, PR | `pytest tests/` and `build_companions.py --check` |
+| `lint-content.yml` | push, PR | markdownlint, cspell, lychee on hand-written Markdown; generated files excluded |
+| `sync-substack.yml` | monthly, manual | sync, rebuild, open a PR if anything changed |
+| `deploy-pages.yml` | push to main | Jekyll build and deploy |
 
-Generates `CHANGELOG.md` from git commit history using [auto-changelog](https://github.com/CookPete/auto-changelog). Commit message prefixes (`Add:`, `Fix:`, `Update:`, etc.) are mapped to changelog categories via `.auto-changelog`.
+The sync never pushes to main. A pull request runs the tests and lints first
+and a person merges it.
 
----
+## Site
 
-## Git Hooks
+GitHub Pages, Jekyll, `jekyll-readme-index`, no theme. `_config.yml` applies
+`_layouts/default.html` to every Markdown page, so a click-through from the
+landing page keeps the house style. `assets/css/stack.css` is the same file
+as in InsightStack, FieldStack and EquityStack.
 
-Installed automatically via `npm install` (the `prepare` script sets `core.hooksPath` to `.githooks/`).
+## Git hooks
 
-| Hook | What It Does |
-|------|-------------|
-| `pre-commit` | Blocks sensitive files (.env, .key, .pem, credentials), warns on console.log/debugger statements, checks for merge conflict markers, warns on files > 500 KB |
-| `commit-msg` | Enforces commit message prefix convention (Add/Fix/Update/Docs/CI/Chore/etc.), warns on subject lines > 72 characters |
-
----
-
-## Dependencies
-
-Intentionally minimal — this is a content repo, not a software project.
-
-| Package | Purpose |
-|---------|---------|
-| `auto-changelog` | Generates CHANGELOG.md from commit history |
-
-That's it. No build step, no bundler, no framework.
-
----
-
-## Branch Strategy
-
-| Branch | Purpose | Protection |
-|--------|---------|-----------|
-| `main` | Production content — what readers see | Protected: require PR reviews, status checks must pass |
-| `feature/*` | New content or improvements | Created from `main`, merged via PR |
-| `fix/*` | Bug fixes and broken link repairs | Created from `main`, merged via PR |
-
-All changes to `main` should go through a pull request with passing CI checks.
+`npm install` sets `core.hooksPath` to `.githooks/`. `commit-msg` enforces
+the prefix convention in `CONTRIBUTING.md`; `pre-commit` blocks credential
+files and merge-conflict markers.

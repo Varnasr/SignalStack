@@ -1,44 +1,23 @@
 # Roadmap
 
-What's been done, what's in progress, and what's planned for SignalStack.
+Rule 1 of the family maintenance policy: nothing is listed before it is
+built, because a roadmap entry is a promise to a reader. This page therefore
+lists candidates, not commitments, and says what each would need.
 
----
+## Candidates
 
-## Completed
+- A script for the reach-versus-impact distinction (June 2024 methods
+  corner): classify a monitoring dashboard's indicators as output or outcome
+  and flag those that need a counterfactual. Needs a defensible rule set
+  before it is code; keyword matching would be worse than nothing.
+- A back-check for the heat-mortality arithmetic in the July 2026 edition
+  (excess deaths per heat day against the official toll), if the underlying
+  district data is published in a usable form.
+- Rural and urban CPI series in `poverty_lines.py`, so the national lines
+  can be inflated by the index their committees used rather than the
+  all-India series.
 
-- [x] Archive newsletter Issues 1 and 2 with full summaries and key takeaways
-- [x] Featured tool: AI Tools for Excel (expanded with coverage table and limitations)
-- [x] Book companion: 101 Data Science Drawings (key concepts, applications, walkthroughs, resources)
-- [x] Extended notes for THR June Edition with source links
-- [x] CI pipeline: markdown linting, spell checking, link validation
-- [x] Auto-generated CHANGELOG from commit history
-- [x] CONTRIBUTING.md with commit conventions and setup guide
-- [x] Project documentation (this docs/ folder)
-- [x] Git hooks for commit message format and sensitive file blocking
-- [x] Dependabot for automated dependency updates
-- [x] Git LFS tracking for binary assets
-- [x] Branch protection configuration
+## Not planned
 
-## Planned
-
-### Content
-
-- [ ] **Issue 3** — Archive next Research Rundown issue when published
-- [ ] **More featured tools** — Expand the featured/ directory with additional tool reviews
-- [ ] **Topic indexes** — Cross-cutting pages that collect resources by theme (e.g., "Climate Resilience" across all issues)
-- [ ] **Glossary** — A central glossary of development research terms used across the repo
-- [ ] **Reading lists** — Curated reading paths for specific audiences (new researchers, M&E practitioners, data scientists)
-
-### Infrastructure
-
-- [ ] **GitHub Pages** — Publish the repo as a browsable documentation site (using Jekyll or MkDocs)
-- [ ] **Search** — Add full-text search across all content (via GitHub Pages or Algolia)
-- [ ] **RSS feed** — Auto-generate an RSS/Atom feed from new issue archives
-- [ ] **Issue templates for content submissions** — Structured forms for suggesting new resources
-- [ ] **Multi-language support** — Translated versions of key content
-
----
-
-## Suggesting Ideas
-
-Have an idea for the roadmap? [Open a feature request](https://github.com/Varnasr/SignalStack/issues/new?template=feature_request.md) or see [CONTRIBUTING.md](../CONTRIBUTING.md).
+Summaries of editions, a search page, a newsletter of the newsletter. The
+archive is full text and the companions are the index.

@@ -1,0 +1,13 @@
+{
+  "project": "Village water-point mapping, 12 hamlets",
+  "questions": {
+    "research_question": {"held_by": "researchers", "note": "Set by the funder's call; hamlet committees were told the question, not asked."},
+    "what_counts_as_evidence": {"held_by": "shared", "note": "GPS points from the team; usability ratings designed with the committees."},
+    "budget": {"held_by": "researchers", "note": ""},
+    "interpretation": {"held_by": "shared", "note": "Two validation meetings per hamlet before the draft report."},
+    "dissent": {"held_by": "participants", "note": "Committees can append a dissent note to the report; two did."},
+    "data_ownership": {"held_by": "researchers", "note": "University data policy."},
+    "publication": {"held_by": "researchers", "note": ""},
+    "after_the_project": {"held_by": "participants", "note": "Maps handed to the gram panchayat; no further funding."}
+  }
+}
