@@ -27,10 +27,9 @@
 
 <section class="hero">
   <h1 class="word">Signal<span class="s2">Stack</span></h1>
-  <p class="lede">The <a href="https://varna.substack.com">Research Rundown</a> newsletter, archived in full
-    and made usable. Every edition as text, its recurring sections compiled into standing reference pages,
-    and the methods notes turned into scripts you can run. Companion to the newsletter, beside the
-    <a href="https://openstacks.dev">OpenStacks</a> stacks rather than one of them.</p>
+  <p class="lede">The <a href="https://varna.substack.com">Research Rundown</a> newsletter, archived and
+    indexed. Every post as text, the recurring sections gathered into reference pages, and the methods
+    notes as scripts. Part of <a href="https://openstacks.dev">OpenStacks</a>.</p>
   <div class="counts">
     <div class="hi"><b>13</b><span>Posts archived</span></div>
     <div><b>26,000</b><span>Words of newsletter</span></div>
@@ -49,24 +48,24 @@
   <div class="rows">
     <a class="row" href="archive/">
       <span class="t"><b>All posts</b><span>13, newest first</span></span>
-      <span class="d">Seven monthly editions from June 2024 to July 2026, three September 2026 dailies, one measurement and survey methods brief, and two essays. Synced by script from the Substack API; the text is the newsletter's, typos included.</span>
+      <span class="d">Seven monthly editions, June 2024 to July 2026; three September 2026 dailies; one measurement and survey methods brief; two essays. Text as published.</span>
     </a>
     <a class="row" href="archive/SECTIONS.html">
       <span class="t"><b>Recurring sections</b><span>by edition</span></span>
-      <span class="d">Where Research praxis, Disambiguation corner, Researchers worth following, One dataset to open and the rest appear, so you can follow one thread through every issue.</span>
+      <span class="d">Where each recurring section appears: Research praxis, Disambiguation corner, Researchers worth following, One dataset to open, and the rest.</span>
     </a>
     <a class="row" href="archive/2026-07-08-the-research-rundown-july-2026.html">
       <span class="t"><b>Latest edition</b><span>July 2026</span></span>
       <span class="d">The electoral rolls, heat mortality the state does not count, the Panagariya poverty claim, delimitation, and how to read a deletion rate.</span>
     </a>
   </div>
-  <p class="note">The newsletter is written by Varna Sri Raman and published first on Substack. This archive follows it; it does not replace it. <a href="https://varna.substack.com/subscribe">Subscribe there</a>.</p>
+  <p class="note">The newsletter is published on Substack. <a href="https://varna.substack.com/subscribe">Subscribe there</a>.</p>
 </section>
 
 <section class="band navy" id="companions">
   <div class="band-h">
     <h2>Companions</h2>
-    <p class="sub">The parts of an edition that outlive it, pulled out of every issue and laid end to end</p>
+    <p class="sub">Each recurring section, gathered from every edition</p>
   </div>
   <div class="tiles">
     <a class="tile" href="companions/praxis.html">
@@ -96,7 +95,7 @@
     <a class="tile" href="companions/reading.html">
       <p class="meta">35 items</p>
       <h3>Papers and reports</h3>
-      <p>Everything recommended reading, edition by edition, with the editor's take where one was given.</p>
+      <p>Recommended reading, edition by edition, with the editor's note where there was one.</p>
       <p class="go">Read &rarr;</p>
     </a>
     <a class="tile" href="companions/books.html">
@@ -114,47 +113,47 @@
     <a class="tile" href="companions/tools.html">
       <p class="meta">11 items</p>
       <h3>Tools and free resources</h3>
-      <p>Platforms and resources the newsletter has pointed at, by edition, links as published.</p>
+      <p>Platforms and resources, by edition.</p>
       <p class="go">Read &rarr;</p>
     </a>
   </div>
-  <p class="note">All eight pages are generated from the archive by <code>scripts/build_companions.py</code> and carry a link to the edition each entry came from. See the <a href="companions/errata.html">errata</a> for the two places the newsletter's own text is known to be wrong.</p>
+  <p class="note">Every entry links to its edition. Corrections to the newsletter's text are in the <a href="companions/errata.html">errata</a>.</p>
 </section>
 
 <section class="band white" id="tools">
   <div class="band-h">
     <h2>Tools</h2>
-    <p class="sub">Four scripts that do what the methods notes describe · standard-library Python · 23 tests</p>
+    <p class="sub">Four scripts from the methods notes · Python, no dependencies · 23 tests</p>
   </div>
   <div class="rows">
     <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/deletion_rate.py">
       <span class="t"><b>Deletion rate</b><span>Python</span></span>
-      <span class="d">Forty-seven lakh electors removed: alarming, or ordinary churn? Runs the July 2026 note's four checks, denominator, baseline attrition, draft or final, and who bears the error, on any roll figure.</span>
+      <span class="d">The four checks from July 2026 on any roll figure: share of the roll, expected churn, draft or final, wrongful removals.</span>
     </a>
     <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/poverty_lines.py">
       <span class="t"><b>Poverty lines</b><span>Python</span></span>
-      <span class="d">Is $2.15 a day more or less than the Tendulkar line? Puts the World Bank and Indian committee lines in rupees per person per month at one price year, using the World Bank's PPP and CPI series, and finds the price year behind any figure you are handed.</span>
+      <span class="d">World Bank and Indian committee lines in rupees per person per month at one price year, from the World Bank's PPP and CPI series.</span>
     </a>
     <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/odds_likelihood.py">
       <span class="t"><b>Odds and likelihood</b><span>Python</span></span>
-      <span class="d">Is an odds ratio of 3 "three times as likely"? Converts odds and probability, computes odds ratio against relative risk from a 2x2 table and says when they diverge, and plots a binomial likelihood so it is visibly not a probability.</span>
+      <span class="d">Odds and probability; odds ratio against relative risk from a 2x2 table; a binomial likelihood on a grid.</span>
     </a>
     <a class="row" href="https://github.com/Varnasr/SignalStack/blob/main/tools/audits.py">
       <span class="t"><b>Audits</b><span>Python</span></span>
-      <span class="d">Does each recommendation in the report rest on a finding, an assumption, evidence for it, and a way it could be wrong? Does "participatory" match where authority sits? Two checklists as JSON you fill in, and a check that fails the report until they are answered.</span>
+      <span class="d">Two checklists: the four questions for each recommendation in a report, the eight questions for a participatory design. Fill in the JSON, run the check.</span>
     </a>
   </div>
-  <p class="note">Each script names the edition it comes from. <code>python -m pytest tests/</code> runs the suite; nothing needs installing beyond pytest. Full guide in <a href="tools/">tools/</a>.</p>
+  <p class="note">Usage in <a href="tools/">tools/</a>.</p>
 </section>
 
 <section class="band ash">
   <div class="band-h">
-    <h2>How it stays current</h2>
-    <p class="sub">Scripts, not hands</p>
+    <h2>Updates</h2>
+    <p class="sub">Monthly, by script</p>
   </div>
   <div class="prose">
-    <p><code>scripts/sync_substack.py</code> reads the public Substack API, writes each post to <code>archive/</code> as Markdown with front matter, and rebuilds the archive index and the recurring-sections index. <code>scripts/build_companions.py</code> reads the archive and rebuilds the eight companion pages. A monthly workflow runs both and opens a pull request when anything changed; nothing lands on <code>main</code> without the tests and lints passing. <code>build_companions.py --check</code> fails CI if the companions drift from the archive.</p>
-    <p>Part of the <a href="https://openstacks.dev">OpenStacks</a> family: <a href="https://varnasr.github.io/InsightStack/">InsightStack</a> for MEL tools and survey data loaders, <a href="https://varnasr.github.io/FieldStack/">FieldStack</a> for field operations in R, <a href="https://varnasr.github.io/EquityStack/">EquityStack</a> for distributional analysis in Python. SignalStack is the newsletter's companion, beside them rather than one of them.</p>
+    <p>A script pulls new posts from Substack and rebuilds the companion pages once a month, and opens a pull request with the result.</p>
+    <p>The other OpenStacks repositories: <a href="https://varnasr.github.io/InsightStack/">InsightStack</a>, MEL tools and survey data loaders; <a href="https://varnasr.github.io/FieldStack/">FieldStack</a>, field operations in R; <a href="https://varnasr.github.io/EquityStack/">EquityStack</a>, inequality measurement in Python.</p>
   </div>
 </section>
 

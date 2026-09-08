@@ -1,23 +1,12 @@
 # Roadmap
 
-Rule 1 of the family maintenance policy: nothing is listed before it is
-built, because a roadmap entry is a promise to a reader. This page therefore
-lists candidates, not commitments, and says what each would need.
-
-## Candidates
+Per the family maintenance policy, nothing is listed until it is built.
+These are candidates.
 
 - A script for the reach-versus-impact distinction (June 2024 methods
-  corner): classify a monitoring dashboard's indicators as output or outcome
-  and flag those that need a counterfactual. Needs a defensible rule set
-  before it is code; keyword matching would be worse than nothing.
-- A back-check for the heat-mortality arithmetic in the July 2026 edition
-  (excess deaths per heat day against the official toll), if the underlying
-  district data is published in a usable form.
+  corner), classifying dashboard indicators as output or outcome. It needs a
+  rule set that can be defended before it is written.
 - Rural and urban CPI series in `poverty_lines.py`, so the national lines
-  can be inflated by the index their committees used rather than the
-  all-India series.
+  are inflated by the index their committees used.
 
-## Not planned
-
-Summaries of editions, a search page, a newsletter of the newsletter. The
-archive is full text and the companions are the index.
+Not planned: summaries of editions, a search page.
