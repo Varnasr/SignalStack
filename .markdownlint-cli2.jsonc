@@ -1,0 +1,18 @@
+{
+  // Generated files are the newsletter's own HTML rendered to Markdown and
+  // the companion pages compiled from it. They are not hand-written, so they
+  // are not linted; the sync and build scripts are what to fix.
+  "ignores": [
+    "node_modules/**",
+    "archive/**",
+    "companions/praxis.md",
+    "companions/glossary.md",
+    "companions/methods.md",
+    "companions/datasets.md",
+    "companions/researchers.md",
+    "companions/reading.md",
+    "companions/books.md",
+    "companions/tools.md",
+    "CHANGELOG.md"
+  ]
+}

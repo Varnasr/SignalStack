@@ -1,7 +1,7 @@
 {
   "name": "signalstack",
   "version": "1.0.0",
-  "description": "Open repository for Research Rundown and OpenStacks extras",
+  "description": "Archive and companion tools for the Research Rundown newsletter",
   "repository": {
     "type": "git",
     "url": "https://github.com/Varnasr/SignalStack.git"

@@ -53,5 +53,7 @@ jobs:
             --exclude "southcentre\\.int"
             --timeout 30
             --max-retries 2
+            --exclude-path archive
+            --exclude-path companions
             "**/*.md"
           fail: true

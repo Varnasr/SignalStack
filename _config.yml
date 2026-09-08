@@ -1,19 +1,36 @@
 title: SignalStack
-description: Research Rundown newsletter archive and curated development resources
+description: The Research Rundown newsletter, archived in full, with its recurring sections compiled and its methods notes turned into scripts.
 url: https://varnasr.github.io
 baseurl: /SignalStack
-remote_theme: pages-themes/cayman@v0.2.0
+markdown: kramdown
 
+# GitHub Pages runs this plugin, which turns each folder's README.md into that
+# folder's index page. Declared so a local build matches what actually ships.
 plugins:
-  - jekyll-remote-theme
+  - jekyll-readme-index
+
+# No theme. Markdown pages render through _layouts/default.html so a page that
+# opens when someone clicks through looks like the rest of the site.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 
 exclude:
+  - README.md
+  - CHANGELOG.md
+  - CITATION.cff
+  - CONTRIBUTING.md
   - node_modules/
   - package.json
   - package-lock.json
+  - tests/
+  - scripts/
   - .auto-changelog
   - .cspell.json
   - .markdownlint.json
+  - .markdownlint-cli2.jsonc
   - .editorconfig
   - .nvmrc
   - .githooks/

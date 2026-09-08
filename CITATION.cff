@@ -1,19 +1,19 @@
 cff-version: 1.2.0
-message: "If you reference this collection, please cite it as below."
+message: "If you reference this archive, cite the newsletter edition and this repository as below."
 type: dataset
-title: "SignalStack"
-abstract: "Research Rundown newsletter archive and curated development resources."
+title: "SignalStack: the Research Rundown newsletter, archived with companion pages and tools"
+abstract: "Full-text archive of the Research Rundown newsletter (varna.substack.com), its recurring sections compiled into reference pages, and scripts implementing its methods notes."
 authors:
   - family-names: "Sri Raman"
     given-names: "Varna"
-version: "2026.1.0"
-date-released: "2026-08-28"
+version: "2026.2.0"
+date-released: "2026-09-08"
 license: MIT
-url: "https://openstacks.dev"
+url: "https://varnasr.github.io/SignalStack/"
 repository-code: "https://github.com/Varnasr/SignalStack"
 keywords:
   - development research
   - newsletter
-  - climate resilience
-  - gender equity
-  - open science
+  - research methods
+  - poverty lines
+  - South Asia
