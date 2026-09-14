@@ -235,19 +235,3 @@ a { color: inherit; text-decoration: none; }
           gap: .6rem; width: 100%; white-space: normal; }
 .row .t b { overflow-wrap: anywhere; }
 .row .t span { white-space: nowrap; flex: none; }
-
-/* The reading-font button (js/dyslexia-font.js) carries neutral defaults so it
-   can drop into any site. Here it follows the house rules instead: square
-   corners, a 2px border, saffron when it is on. Specificity, not order: the
-   module appends its <style> to <head> after this file, so `body` prefixes
-   are what let these win. */
-body #dys-font-btn {
-  border-radius: 0;
-  border-width: 2px;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-}
-body #dys-font-btn[aria-pressed="true"] {
-  background: #f2a541;
-  border-color: #f2a541;
-  color: #111;
-}
