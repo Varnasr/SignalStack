@@ -24,6 +24,8 @@ import html
 import json
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import date
 from html.parser import HTMLParser
@@ -32,13 +34,33 @@ from pathlib import Path
 PUBLICATION = "https://varna.substack.com"
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT / "archive"
-UA = {"User-Agent": "SignalStack sync (github.com/Varnasr/SignalStack)"}
+UA = {
+    "User-Agent": "SignalStack sync (github.com/Varnasr/SignalStack)",
+    "Accept": "application/json",
+}
+
+# Substack answered the scheduled run on 2 October 2026 with 403 Forbidden on
+# the archive endpoint, while the same request from elsewhere returned the full
+# list. A 403, 429 or 5xx from here is therefore retried with a growing wait
+# before the run is allowed to fail, and the final error names the URL.
+RETRY_STATUSES = {403, 429, 500, 502, 503, 504}
+RETRY_WAITS = (10, 30, 90)
 
 
 def fetch_json(url: str):
     req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    for attempt, wait in enumerate((*RETRY_WAITS, None), start=1):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_STATUSES or wait is None:
+                raise SystemExit(
+                    f"Substack returned HTTP {e.code} for {url} "
+                    f"after {attempt} attempt(s)"
+                ) from e
+            print(f"HTTP {e.code} from {url}; retrying in {wait}s", file=sys.stderr)
+            time.sleep(wait)
 
 
 def list_posts() -> list[dict]:
