@@ -1,5 +1,7 @@
 # SignalStack
 
+Shared engineering standard: @.claude/engineering-standards.md. It applies to all work in this repository. This file adds what is specific to the project, and wins where the two disagree.
+
 Companion archive for the Research Rundown newsletter at
 [varna.substack.com](https://varna.substack.com). Part of the
 [OpenStacks](https://openstacks.dev) family, beside the three stacks rather
@@ -76,12 +78,24 @@ label.
 
 ## Testing
 
-`.github/workflows/tests.yml` runs `python -m pytest tests/` (23 tests) and
+`.github/workflows/tests.yml` runs `python -m pytest tests/` (33 tests) and
 `build_companions.py --check` on pull requests and pushes to main.
 `lint-content.yml` runs markdownlint, cspell and lychee over hand-written
 Markdown; `archive/` and the generated companions are excluded from all three
 because their text is not ours to lint. `sync-substack.yml` runs monthly and
 opens a PR; it never pushes to main.
+
+The sync pages through Substack's archive until a page comes back empty.
+Substack returns fewer posts than `limit` on pages that are not the last (23,
+26, then 3 overlapping, on 2026-10-19), so stopping at a short page archived
+only the first 23. The indexes are built from the fetched posts together with
+every file already in `archive/`, so a partial listing cannot drop one. A
+final fetch failure exits 2; `--check` finding the archive behind exits 1.
+`--dry-run` fetches and reports and writes nothing. The 403 that stopped the
+scheduled run on 2026-10-02 did not reproduce from the agent sandbox with
+either User-Agent; whether the browser User-Agent gets past it on GitHub's
+runners is known only after a run there, and the workflow's first step now
+prints the status Substack gives that runner.
 
 ## Design references
 
