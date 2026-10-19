@@ -114,3 +114,20 @@ applies `_layouts/default.html` to every Markdown page. A folder becomes a
 page only if it holds a `README.md`. `archive/` and `companions/` both do.
 After changing the landing page, load it at 390x844 and compare
 `documentElement.scrollWidth` against `clientWidth`.
+
+## The one dependency, and the critical it carried
+
+`auto-changelog` is the only entry in `devDependencies` and it pulls
+`handlebars` to render its templates. On 19 October 2026 `npm audit` reported
+one critical there, three advisories against handlebars 3.0.0 to 4.7.9, all
+JavaScript injection: unsafe inline embedding of precompiled templates
+(GHSA-xw65-4hp5-5hc7), AST type confusion in `compile` (GHSA-8r5x-fm3f-whwj)
+and an own-property check bypass (GHSA-p8wg-vrv2-v86f).
+
+Nothing here compiles a template a stranger wrote. handlebars sees
+auto-changelog's own templates, shipped in that package, and the tool runs by
+hand through `npm run changelog`. So the exposure is nil, and the fix was a
+patch bump inside the allowed range, which is reason enough to take it:
+handlebars 4.7.9 to 4.7.10, four lines of `package-lock.json`, auto-changelog
+itself unchanged at 2.7.0. `npm ci` installs it and `auto-changelog --version`
+still reports 2.7.0.
