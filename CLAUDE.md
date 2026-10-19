@@ -1,5 +1,7 @@
 # SignalStack
 
+Shared engineering standard: @.claude/engineering-standards.md. It applies to all work in this repository. This file adds what is specific to the project, and wins where the two disagree.
+
 Companion archive for the Research Rundown newsletter at
 [varna.substack.com](https://varna.substack.com). Part of the
 [OpenStacks](https://openstacks.dev) family, beside the three stacks rather
