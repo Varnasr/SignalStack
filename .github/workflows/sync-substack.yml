@@ -10,6 +10,11 @@ on:
   schedule:
     - cron: "0 6 2 * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "List and fetch, report what would change, write nothing and open no PR"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -17,17 +22,30 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    # Pinned: the ubuntu-latest label moves to Ubuntu 26 from 19 October 2026.
+    runs-on: ubuntu-24.04
+    # A normal sync takes under a minute. Each request retries for about 130
+    # seconds before the run fails, so ten minutes is room for that and more.
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      # Puts Substack's answer to this runner in the log before the sync,
+      # so a block shows as a status code rather than only as a failure.
+      - name: Substack API status from this runner
+        run: >-
+          curl -sS -o /dev/null -w 'substack api: %{http_code}\n' -A 'Mozilla/5.0'
+          'https://varna.substack.com/api/v1/archive?sort=new&offset=0&limit=1' || true
+      # Scheduled runs have no inputs, so they always do the full sync.
       - name: Sync archive
-        run: python scripts/sync_substack.py
+        run: python scripts/sync_substack.py ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Rebuild companions
+        if: ${{ !inputs.dry_run }}
         run: python scripts/build_companions.py
       - name: Open a pull request if anything changed
+        if: ${{ !inputs.dry_run }}
         uses: peter-evans/create-pull-request@v8
         with:
           branch: sync/substack

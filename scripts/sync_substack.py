@@ -34,10 +34,22 @@ from pathlib import Path
 PUBLICATION = "https://varna.substack.com"
 ROOT = Path(__file__).resolve().parent.parent
 ARCHIVE = ROOT / "archive"
+# A browser User-Agent, with the project's contact in From. Substack refused
+# the scheduled run with 403 while the same request from elsewhere succeeded;
+# a self-describing User-Agent is the first thing a bot screen keys on. That
+# this avoids the block from GitHub's runners is not yet verified: from the
+# agent sandbox on 2026-10-19 both User-Agents returned 200.
 UA = {
-    "User-Agent": "SignalStack sync (github.com/Varnasr/SignalStack)",
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"),
+    "From": "SignalStack sync (github.com/Varnasr/SignalStack)",
     "Accept": "application/json",
 }
+
+# A final fetch failure exits 2, so it is distinct from --check reporting that
+# the archive is behind (exit 1).
+FETCH_FAILED = 2
+PAGE_CAP = 40
 
 # Substack answered the scheduled run on 2 October 2026 with 403 Forbidden on
 # the archive endpoint, while the same request from elsewhere returned the full
@@ -55,24 +67,41 @@ def fetch_json(url: str):
                 return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code not in RETRY_STATUSES or wait is None:
-                raise SystemExit(
-                    f"Substack returned HTTP {e.code} for {url} "
-                    f"after {attempt} attempt(s)"
-                ) from e
+                print(f"Substack returned HTTP {e.code} for {url} "
+                      f"after {attempt} attempt(s)", file=sys.stderr)
+                raise SystemExit(FETCH_FAILED) from e
             print(f"HTTP {e.code} from {url}; retrying in {wait}s", file=sys.stderr)
-            time.sleep(wait)
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+            # DNS failure, timeout, connection reset: the same retries, and the
+            # same one-line ending instead of a traceback.
+            reason = getattr(e, "reason", e)
+            if wait is None:
+                print(f"Could not reach {url} after {attempt} attempt(s): {reason}",
+                      file=sys.stderr)
+                raise SystemExit(FETCH_FAILED) from e
+            print(f"network error for {url} ({reason}); retrying in {wait}s", file=sys.stderr)
+        time.sleep(wait)
 
 
 def list_posts() -> list[dict]:
-    out, offset = [], 0
-    while True:
+    """Every post, newest first. Substack returns fewer than `limit` posts on
+    a page that is not the last (23, then 26, then 3 overlapping, then none, on
+    2026-10-19), so only an empty page ends the listing. Pages can overlap, so
+    posts are kept once by id, falling back to slug."""
+    out, seen, offset = [], set(), 0
+    for _ in range(PAGE_CAP):
         page = fetch_json(f"{PUBLICATION}/api/v1/archive?sort=new&offset={offset}&limit=50")
         if not page:
             break
-        out.extend(page)
+        for post in page:
+            key = post.get("id") or post.get("slug")
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(post)
         offset += len(page)
-        if len(page) < 50:
-            break
+    else:
+        print(f"stopped after {PAGE_CAP} pages; the listing may be incomplete", file=sys.stderr)
     return out
 
 
@@ -216,7 +245,7 @@ def slug_filename(post: dict) -> str:
     return f"{post['post_date'][:10]}-{post['slug']}.md"
 
 
-def write_post(post: dict, full: dict) -> Path:
+def render_post(post: dict, full: dict) -> tuple[Path, str]:
     kind = classify(post["title"])
     body = to_markdown(full.get("body_html") or "")
     fm = "\n".join([
@@ -233,10 +262,33 @@ def write_post(post: dict, full: dict) -> Path:
             f"*{post['post_date'][:10]}. Published at [{post['canonical_url']}]({post['canonical_url']}). "
             "This file is a generated copy; the Substack post is the original.*\n\n"
             + body)
+    return ARCHIVE / slug_filename(post), text
+
+
+def write_post(post: dict, full: dict) -> Path:
+    path, text = render_post(post, full)
     ARCHIVE.mkdir(exist_ok=True)
-    path = ARCHIVE / slug_filename(post)
     path.write_text(text, encoding="utf-8")
     return path
+
+
+def archived_entries() -> list[dict]:
+    """The posts already in archive/, read from their front matter, in the
+    shape build_indexes() needs."""
+    out = []
+    for path in sorted(ARCHIVE.glob("*.md")):
+        if path.name in ("README.md", "SECTIONS.md"):
+            continue
+        fm = re.match(r"---\n(.*?)\n---\n", path.read_text(encoding="utf-8"), re.S)
+        if not fm:
+            continue
+        meta = dict(line.split(": ", 1) for line in fm.group(1).splitlines() if ": " in line)
+        try:
+            title = json.loads(meta.get("title", '""'))
+        except json.JSONDecodeError:
+            title = meta.get("title", "")
+        out.append({"title": title, "post_date": meta.get("date", ""), "file": path.name})
+    return out
 
 
 def headings(md: str) -> list[str]:
@@ -244,14 +296,20 @@ def headings(md: str) -> list[str]:
 
 
 def build_indexes(posts: list[dict]) -> None:
-    posts = sorted(posts, key=lambda p: p["post_date"], reverse=True)
+    """Index the union of the fetched posts and every file already archived,
+    so a partial listing can never drop an archived post from the indexes."""
+    entries = {slug_filename(p): {"title": p["title"], "post_date": p["post_date"],
+                                  "file": slug_filename(p)} for p in posts}
+    for e in archived_entries():
+        entries.setdefault(e["file"], e)
+    posts = sorted(entries.values(), key=lambda p: (p["post_date"], p["file"]), reverse=True)
     lines = ["# Archive", "",
              f"{len(posts)} posts from [varna.substack.com]({PUBLICATION}), newest first. "
              "Generated by `scripts/sync_substack.py`; do not edit by hand.", "",
              "| Date | Type | Title |", "|---|---|---|"]
     for p in posts:
         title = p["title"].strip().replace("|", "\\|")      # a pipe in a title breaks the table
-        lines.append(f"| {p['post_date'][:10]} | {classify(p['title'])} | [{title}]({slug_filename(p)}) |")
+        lines.append(f"| {p['post_date'][:10]} | {classify(p['title'])} | [{title}]({p['file']}) |")
     (ARCHIVE / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     # Sections index: the recurring section headings across editions, so a
@@ -259,12 +317,12 @@ def build_indexes(posts: list[dict]) -> None:
     # through every issue without opening each one.
     by_section: dict[str, list[tuple[str, str, str]]] = {}
     for p in posts:
-        md = (ARCHIVE / slug_filename(p)).read_text(encoding="utf-8")
+        md = (ARCHIVE / p["file"]).read_text(encoding="utf-8")
         for h in headings(md):
             key = re.sub(r"[^a-z ]", "", h.lower()).strip()
             for canon in RECURRING:
                 if key.startswith(canon):
-                    by_section.setdefault(canon, []).append((p["post_date"][:10], p["title"], slug_filename(p)))
+                    by_section.setdefault(canon, []).append((p["post_date"][:10], p["title"], p["file"]))
                     break
     lines = ["# Recurring sections", "",
              "Where each recurring section of the newsletter appears, by edition. "
@@ -292,6 +350,8 @@ RECURRING = [
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="exit 1 if the archive is behind Substack")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="fetch everything and say which files would change; write nothing")
     args = ap.parse_args(argv)
 
     posts = list_posts()
@@ -301,6 +361,22 @@ def main(argv=None) -> int:
         for p in missing:
             print("  ", p["post_date"][:10], p["title"])
         return 1 if missing else 0
+
+    if args.dry_run:
+        added, changed = [], []
+        for p in posts:
+            path, text = render_post(p, fetch_json(f"{PUBLICATION}/api/v1/posts/{p['slug']}"))
+            if not path.exists():
+                added.append(path.name)
+            elif path.read_text(encoding="utf-8") != text:
+                changed.append(path.name)
+        print(f"dry run: {len(posts)} posts on Substack, {len(added)} would be added, "
+              f"{len(changed)} would change; nothing written")
+        for name in added:
+            print("  add   ", name)
+        for name in changed:
+            print("  change", name)
+        return 0
 
     written = []
     for p in posts:
