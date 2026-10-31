@@ -1,8 +1,7 @@
 # Tools
 
 Four scripts, each from one methods note in the newsletter. Standard
-library only, Python 3.10 or later. `python -m pytest tests/` runs the
-23 tests.
+library only, Python 3.10 or later.
 
 | Script | From | What it does |
 | --- | --- | --- |
