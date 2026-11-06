@@ -26,6 +26,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import date
 from html.parser import HTMLParser
@@ -84,22 +85,29 @@ def fetch_json(url: str):
 
 
 def list_posts() -> list[dict]:
-    """Every post, newest first. Substack returns fewer than `limit` posts on
-    a page that is not the last (23, then 26, then 3 overlapping, then none, on
-    2026-10-19), so only an empty page ends the listing. Pages can overlap, so
-    posts are kept once by id, falling back to slug."""
-    out, seen, offset = [], set(), 0
+    """Every post, newest first. Since November 2026 the archive endpoint answers
+    HTTP 400 to `offset` and to a `limit` above 25, and returns an object with
+    `posts` and `nextCursor` where it used to return a bare list. Pages are
+    followed by cursor until none is given. The earlier endpoint also returned
+    short pages that were not the last, so a short page does not end the
+    listing, and pages can overlap, so posts are kept once by id, falling back to
+    slug. A bare list is still accepted, in case Substack reverts."""
+    out, seen, cursor = [], set(), None
     for _ in range(PAGE_CAP):
-        page = fetch_json(f"{PUBLICATION}/api/v1/archive?sort=new&offset={offset}&limit=50")
-        if not page:
-            break
+        url = f"{PUBLICATION}/api/v1/archive?limit=25"
+        if cursor:
+            url += f"&cursor={urllib.parse.quote(cursor)}"
+        data = fetch_json(url)
+        page = data if isinstance(data, list) else data.get("posts", [])
+        cursor = None if isinstance(data, list) else data.get("nextCursor")
         for post in page:
             key = post.get("id") or post.get("slug")
             if key in seen:
                 continue
             seen.add(key)
             out.append(post)
-        offset += len(page)
+        if not page or not cursor:
+            break
     else:
         print(f"stopped after {PAGE_CAP} pages; the listing may be incomplete", file=sys.stderr)
     return out

@@ -1,19 +1,29 @@
 ---
-title: "Unlearning to Lead: A First Step into Politics"
+title: "Good Reads 4# Unlearning to Lead: A First Step into Politics"
 date: 2025-08-24
 type: other
 url: https://varna.substack.com/p/unlearning-to-lead-a-first-step-into
-subtitle: ""
+subtitle: "I have always believed that development is a science of solutions. My entire career has been built on models, data, and the quiet confidence that complex problems can be solved with the right analysis"
 source: varna.substack.com, fetched by scripts/sync_substack.py
 ---
 
-# Unlearning to Lead: A First Step into Politics
+# Good Reads 4# Unlearning to Lead: A First Step into Politics
 
 *2025-08-24. Published at [https://varna.substack.com/p/unlearning-to-lead-a-first-step-into](https://varna.substack.com/p/unlearning-to-lead-a-first-step-into). This file is a generated copy; the Substack post is the original.*
 
-I have always believed that development is a science of solutions. My entire career has been built on models, data, and the quiet confidence that complex problems can be solved with the right analysis. This week, that confidence was gently, and necessarily, dismantled. I walked into the commencement of the Dr. Manmohan Singh Fellowship as a development economist. I walked out as something else entirely—an apprentice in the profound and humbling art of political change.
+[![Research Rundown Good Reads cover for “Unlearning to Lead: A First Step into Politics,” with books labelled Question, Listen, Unlearn, Rethink and Act beside an open notebook, map and writing desk, set against a government-building backdrop in the series’ textured cream, teal, rust and ochre editorial style.](https://substackcdn.com/image/fetch/$s_!2Nnm!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac466fca-8aa8-401d-820c-18b7f0177c89_1536x1024.png)](https://substackcdn.com/image/fetch/$s_!2Nnm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac466fca-8aa8-401d-820c-18b7f0177c89_1536x1024.png)
+
+*A slightly different Good Read this time. Usually, this series looks outward, at an essay, paper or report by someone else. This one looks back at something I wrote a year ago, at the beginning of the Dr. Manmohan Singh Fellowship, about expertise, politics and what it means to unlearn some of the habits we carry into public life.*
+
+*I am returning to it now because the questions in it still feel unfinished.*
+
+******
+
+This week, that confidence was gently, and necessarily, dismantled. I walked into the commencement of the Dr. Manmohan Singh Fellowship as a development economist. I walked out as something else entirely—an apprentice in the profound and humbling art of political change.
 
 The atmosphere was charged not with political rhetoric, but with a sense of historical purpose. Congress President Mallikarjun Kharge framed our journey not as a career shift, but as an answer to a national call. He spoke of an India grappling with extreme inequality and unemployment, and he drew a direct line from the lawyers, economists, and doctors who built this nation to us, the fifty professionals in that room. He reminded us that the most enduring legacies, like those forged under Dr. Manmohan Singh’s leadership, are built on substance, not spectacle—on working more and talking less. For a moment, I saw my econometric models not as solutions, but as mere tools in a much larger, more human toolkit.
+
+[Subscribe now](https://varna.substack.com/subscribe?)
 
 Then, the philosophers of our new journey took the stage. Dr. Salman Khurshid, with the grace of a man who has navigated the highest corridors of power, offered our first and most difficult lesson: the courage to unlearn. He gave us permission to let go of the arrogance of expertise, to shed the illusion that the clean logic of my spreadsheets could ever fully capture the beautiful chaos of society. His most liberating admission was that in the realm of global foreign policy today, “nobody quite understands what the hell is going on.” It was a stunning declaration that the old rulebooks are obsolete. Our task is not to have all the answers, but to help write new questions.
 
@@ -25,6 +35,4 @@ Sitting there as one of the only two economists in the cohort, I felt a familiar
 
 The commencement is over. The real education has just begun.
 
----
-
-Subscribe for more dispatches from the front lines of learning, unlearning, and the messy, magnificent work of building a political future.
+[Share](https://varna.substack.com/p/unlearning-to-lead-a-first-step-into?utm_source=substack&utm_medium=email&utm_content=share&action=share)

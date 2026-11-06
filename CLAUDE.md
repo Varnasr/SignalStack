@@ -85,7 +85,11 @@ Markdown; `archive/` and the generated companions are excluded from all three
 because their text is not ours to lint. `sync-substack.yml` runs monthly and
 opens a PR; it never pushes to main.
 
-The sync pages through Substack's archive until a page comes back empty.
+The sync follows Substack's archive by cursor until none is returned. On 2026-11-06
+the endpoint answered HTTP 400 to `offset` and to a `limit` above 25 and began
+returning `{posts, nextCursor}` instead of a list, which had stopped the sync
+since early September (the archive was six weeks behind); it now uses
+`limit=25` and `cursor`. Earlier it paged until a page came back empty.
 Substack returns fewer posts than `limit` on pages that are not the last (23,
 26, then 3 overlapping, on 2026-10-19), so stopping at a short page archived
 only the first 23. The indexes are built from the fetched posts together with

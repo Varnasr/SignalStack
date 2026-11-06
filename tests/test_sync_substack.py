@@ -85,28 +85,59 @@ def test_a_404_is_not_retried(monkeypatch):
 # ---------------------------------------------------------------- list_posts
 
 def _pages(monkeypatch, pages):
+    """Serve `pages` in order, each as the cursor-shaped answer Substack gives
+    since November 2026: {"posts": [...], "nextCursor": "..." or None}. The URLs
+    asked for are kept in the returned list."""
     it = iter(pages)
-    monkeypatch.setattr(sync, "fetch_json", lambda url: next(it))
+    urls = []
+
+    def fake(url):
+        urls.append(url)
+        return next(it)
+
+    monkeypatch.setattr(sync, "fetch_json", fake)
+    return urls
 
 
 def _posts(start, n):
     return [{"id": i, "slug": f"p{i}"} for i in range(start, start + n)]
 
 
+def _page(posts, cursor):
+    return {"posts": posts, "nextCursor": cursor}
+
+
 def test_short_pages_do_not_end_the_listing(monkeypatch):
-    # Substack returned 23 and then 19 on 6 October 2026, with limit=50.
-    _pages(monkeypatch, [_posts(0, 23), _posts(23, 19), []])
+    # Substack returned 23 and then 19 on 6 October 2026. Only a missing cursor
+    # or an empty page ends the listing.
+    _pages(monkeypatch, [_page(_posts(0, 23), "a"), _page(_posts(23, 19), "b"), _page([], None)])
     assert len(sync.list_posts()) == 42
 
 
 def test_overlapping_pages_keep_each_post_once(monkeypatch):
-    _pages(monkeypatch, [_posts(0, 23), _posts(20, 6), []])
+    _pages(monkeypatch, [_page(_posts(0, 23), "a"), _page(_posts(20, 6), "b"), _page([], None)])
     got = sync.list_posts()
     assert [p["id"] for p in got] == list(range(26))
 
 
+def test_the_listing_follows_the_cursor_and_never_sends_offset(monkeypatch):
+    # Substack answers HTTP 400 to `offset` and to a `limit` above 25.
+    urls = _pages(monkeypatch, [_page(_posts(0, 25), "abc=="), _page(_posts(25, 24), None)])
+    assert len(sync.list_posts()) == 49
+    assert len(urls) == 2
+    assert all("offset" not in u for u in urls)
+    assert "cursor=" not in urls[0] and "limit=25" in urls[0]
+    assert "cursor=abc%3D%3D" in urls[1]
+
+
 def test_the_page_cap_stops_a_listing_that_never_ends(monkeypatch):
-    monkeypatch.setattr(sync, "fetch_json", lambda url: [{"id": url, "slug": url}])
+    count = iter(range(10**6))
+
+    def endless(url):
+        n = next(count)
+        return _page([{"id": n, "slug": f"p{n}"}], f"c{n}")
+
+    monkeypatch.setattr(sync, "fetch_json", endless)
     assert len(sync.list_posts()) == sync.PAGE_CAP
 
 
