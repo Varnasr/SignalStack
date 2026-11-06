@@ -11,7 +11,8 @@ source: varna.substack.com, fetched by scripts/sync_substack.py
 
 *2026-09-07. Published at [https://varna.substack.com/p/measurement-and-survey-methods-brief](https://varna.substack.com/p/measurement-and-survey-methods-brief). This file is a generated copy; the Substack post is the original.*
 
-[![image](https://substackcdn.com/image/fetch/$s_!taVv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F233dfb53-912f-4b22-8bbe-12c9dac37f04_1491x1055.png)](https://substackcdn.com/image/fetch/$s_!taVv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F233dfb53-912f-4b22-8bbe-12c9dac37f04_1491x1055.png)
+[![Research Rundown DAILY cover for 8 September 2026, featuring layered South Asian maps, food-safety records, social-protection data, literacy figures and disaster-reconstruction estimates in a textured cream, teal, rust and ochre editorial collage.](https://substackcdn.com/image/fetch/$s_!8Per!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa37ef200-ad4f-4df5-8a48-a127f8e6fd3c_1491x1055.png)](https://substackcdn.com/image/fetch/$s_!8Per!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa37ef200-ad4f-4df5-8a48-a127f8e6fd3c_1491x1055.png)
+*Methods Monday - 7th September 2026*
 
 ### 1. Meyer et al. — *The Anatomy and Evolution of Survey Error*
 

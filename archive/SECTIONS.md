@@ -10,6 +10,7 @@ Where each recurring section of the newsletter appears, by edition. Generated; d
 
 ## Research praxis
 
+- 2026-09-16: [Research Rundown, September 2026](2026-09-16-research-rundown-september-2026.md)
 - 2026-07-08: [🌏 The Research Rundown: July 2026](2026-07-08-the-research-rundown-july-2026.md)
 - 2026-05-08: [🌏 The Research Rundown | May 2026](2026-05-08-the-research-rundown-may-2026.md)
 - 2026-03-18: [🌏 The Research Rundown — March 2026 Edition](2026-03-18-the-research-rundown-march-2026-edition.md)

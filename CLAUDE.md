@@ -78,14 +78,19 @@ label.
 
 ## Testing
 
-`.github/workflows/tests.yml` runs `python -m pytest tests/` (33 tests) and
+`.github/workflows/tests.yml` runs `python -m pytest tests/` (34 tests) and
 `build_companions.py --check` on pull requests and pushes to main.
 `lint-content.yml` runs markdownlint, cspell and lychee over hand-written
 Markdown; `archive/` and the generated companions are excluded from all three
 because their text is not ours to lint. `sync-substack.yml` runs monthly and
 opens a PR; it never pushes to main.
 
-The sync pages through Substack's archive until a page comes back empty.
+The sync follows Substack's archive by cursor until none is returned. On 2026-11-06
+the endpoint answered HTTP 400 to `offset` and to a `limit` above 25 and began
+returning `{posts, nextCursor}` instead of a list, which stops the sync (the
+archive was six weeks behind when this was found; when the change began is not
+known, and the 403 below is a second cause on the scheduled run); it now uses
+`limit=25` and `cursor`. Earlier it paged until a page came back empty.
 Substack returns fewer posts than `limit` on pages that are not the last (23,
 26, then 3 overlapping, on 2026-10-19), so stopping at a short page archived
 only the first 23. The indexes are built from the fetched posts together with
